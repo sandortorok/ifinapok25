@@ -1,0 +1,37 @@
+.section {
+  min-height: 100vh; /* legalább egy képernyőnyi */
+  padding: 50px;
+  color: black;
+}
+
+.grid1x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* két egyenlő szélességű oszlop */
+  grid-template-rows: 1fr; /* egy sor */
+  gap: 40px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-form-fields {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+.example-form {
+  max-width: 600px;
+  padding: 10px;
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+.datePicker {
+}
+label {
+  display:block
+}
