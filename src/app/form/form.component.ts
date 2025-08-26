@@ -20,7 +20,7 @@ import {
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { minAgeValidator } from '../validators/age.validator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { environment } from '../../environments/environments';
+import { environment } from '../../environments/environment';
 import { StripeService } from '../stripe/stripe.service';
 
 @Component({
@@ -80,7 +80,7 @@ export class FormComponent {
       this.stripeService.checkout(this.price)
     }
     else {
-      
+
     }
   }
 }
