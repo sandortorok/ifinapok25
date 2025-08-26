@@ -20,6 +20,7 @@ import {
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { minAgeValidator } from '../validators/age.validator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { environment } from '../../environments/environments';
 
 @Component({
   selector: 'app-form',
@@ -63,5 +64,6 @@ export class FormComponent {
 
   onSubmit() {
     console.warn(this.Myform.value);
+    fetch(`${environment.functionsBaseUrl}/helloWorld`).then(res => res.text()).then(console.log);
   }
 }
