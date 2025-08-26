@@ -9,6 +9,7 @@
   grid-template-columns: 1fr 1fr; /* két egyenlő szélességű oszlop */
   grid-template-rows: 1fr; /* egy sor */
   gap: 40px;
+  margin: 20px;
 }
 
 .example-full-width {
@@ -21,7 +22,8 @@
   gap: 30px;
 }
 .example-form {
-  max-width: 600px;
+  max-width: 70%;
+  margin: 0 auto;
   padding: 10px;
 }
 .radio-group {
@@ -30,8 +32,34 @@
   margin: 15px 0;
   align-items: flex-start;
 }
-.datePicker {
+.stripe-logo{
+  width:80%;
+  min-width:250px;
+  height: auto;
+}
+.highlight {
+  font-weight: bold;
 }
 label {
   display:block
+}
+@media screen and (max-width: 950px) {
+  .grid1x2 {
+    display: grid;
+    grid-template-columns: 1fr; /* két egyenlő szélességű oszlop */
+    grid-template-rows: 1fr; /* egy sor */
+    gap: 40px;
+    margin: 20px;
+  }
+  .example-form {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .stripe-logo{
+    width:70%
+  }
+}
+
+@media screen and (max-width: 1220px) {
 }

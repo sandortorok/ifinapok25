@@ -8,7 +8,7 @@
   <form
     class="example-form"
     style="border: 1px solid gray"
-    [formGroup]="Myform"
+    [formGroup]="myForm"
     (ngSubmit)="onSubmit()"
   >
     <div class="grid1x2">
@@ -64,31 +64,34 @@
         </mat-radio-group>
       </div>
     </div>
-    <div *ngIf="Myform.get('hotel')?.value === 'need'">
-      <label id="hotel-pref-label">Hol aludnál szívesebben?</label>
-      <mat-radio-group
-        formControlName="mass"
-        aria-labelledby="hotel-pref-label"
-        class="radio-group"
-      >
-        <mat-radio-button value="mass">Tömegszálláson</mat-radio-button>
-        <mat-radio-button value="house">Háznál</mat-radio-button>
-      </mat-radio-group>
-    </div>
-    <div>
-      <label id="vehicle">Milyen járművel érkezel?</label>
-      <mat-radio-group
+    <div class="grid1x2">
+
+      <div>
+        <label id="vehicle">Sofőr vagy? (és autóval jössz)</label>
+        <mat-radio-group
         formControlName="vehicle"
         aria-labelledby="vehicle"
         class="radio-group"
-      >
-        <mat-radio-button value="car">Autóval</mat-radio-button>
-        <mat-radio-button value="bus">Tömegközlekedve</mat-radio-button>
+        >
+        <mat-radio-button value="yes">Igen</mat-radio-button>
+        <mat-radio-button value="no">Nem</mat-radio-button>
       </mat-radio-group>
     </div>
+          <div *ngIf="myForm.get('hotel')?.value === 'need'">
+        <label id="hotel-pref-label">Hol aludnál szívesebben?</label>
+        <mat-radio-group
+          formControlName="mass"
+          aria-labelledby="hotel-pref-label"
+          class="radio-group"
+        >
+          <mat-radio-button value="mass">Tömegszálláson</mat-radio-button>
+          <mat-radio-button value="house">Háznál</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  </div>
     <div class="grid1x2">
       <div>
-        <label id="organizer">Szolgáló vagy?</label>
+        <label id="organizer">Szervező vagy?</label>
         <mat-radio-group
           formControlName="organizer"
           aria-labelledby="organizer"
@@ -108,18 +111,33 @@
         </div>
       </div>
     </div>
-    <div>
-      <label id="birthday" style="margin-bottom: 10px">Születési Dátum</label>
-      <mat-form-field class="datePicker">
-        <input formControlName="date" matInput [matDatepicker]="picker" />
-        <mat-datepicker-toggle
+    <div class="grid1x2">
+
+      <div>
+        <label id="birthday" style="margin-bottom: 10px">Születési Dátum</label>
+        <mat-form-field class="datePicker">
+          <input formControlName="date" matInput [matDatepicker]="picker" />
+          <mat-datepicker-toggle
           matIconSuffix
           [for]="picker"
-        ></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
     </div>
-    <button type="submit" mat-stroked-button>Jelentkezés Leadása</button>
+    <div class="grid1x2" style="margin-top: 50px; margin-bottom: 50px">
+      <img src="stripe-logo.png" class="stripe-logo" alt="stripe-logo">
+      <div style="font-size: 100%;   display: flex;
+  align-items: center;">
+        <div>
+          Fizetendő összeg: <span class="highlight">{{price}} Ft</span>
+          <p style="margin:0">(A fizetés csak online lehetséges)</p>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center;margin: 30px 0">
+      <button  type="submit" [disabled]="myForm.invalid" mat-stroked-button>Jelentkezés Leadása</button>
+    </div>
   </form>
 </section>
 

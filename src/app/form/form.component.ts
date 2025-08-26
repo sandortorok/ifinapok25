@@ -21,6 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { minAgeValidator } from '../validators/age.validator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { environment } from '../../environments/environments';
+import { StripeService } from '../stripe/stripe.service';
 
 @Component({
   selector: 'app-form',
@@ -46,13 +47,24 @@ import { environment } from '../../environments/environments';
   styleUrl: './form.component.scss',
 })
 export class FormComponent {
-  Myform = new FormGroup({
+  constructor(private stripeService: StripeService){
+    // Listen to value changes
+    this.myForm.valueChanges.subscribe(formValues => {
+      let basePrice =  (formValues.friday ?? 0 ) * 2000 + (formValues.saturday ?? 0 )*2000;
+      if (formValues.organizer && formValues.organizer === 'yes'){
+        basePrice = 0
+      }
+      this.price = basePrice
+    });
+  }
+  price = 0
+  myForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(5)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     gender: new FormControl('', [Validators.required]),
     hotel: new FormControl('', [Validators.required]),
-    mass: new FormControl('', [Validators.required]),
-    date: new FormControl(new Date(), [
+    mass: new FormControl('', []),
+    date: new FormControl(null, [
       Validators.required,
       minAgeValidator(14),
     ]),
@@ -63,7 +75,12 @@ export class FormComponent {
   });
 
   onSubmit() {
-    console.warn(this.Myform.value);
-    fetch(`${environment.functionsBaseUrl}/helloWorld`).then(res => res.text()).then(console.log);
+    console.warn(this.myForm.value);
+    if (this.price > 0){
+      this.stripeService.checkout(this.price)
+    }
+    else {
+      
+    }
   }
 }

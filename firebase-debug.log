@@ -1,0 +1,433 @@
+[debug] [2025-08-26T11:03:52.322Z] ----------------------------------------------------------------------
+[debug] [2025-08-26T11:03:52.324Z] Command:       C:\Users\csgorkev\DOWNLO~1\firebase-tools-instant-win.exe C:\Users\csgorkev\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase emulators:start --only functions
+[debug] [2025-08-26T11:03:52.325Z] CLI Version:   14.14.0
+[debug] [2025-08-26T11:03:52.325Z] Platform:      win32
+[debug] [2025-08-26T11:03:52.325Z] Node Version:  v20.18.2
+[debug] [2025-08-26T11:03:52.325Z] Time:          Tue Aug 26 2025 13:03:52 GMT+0200 (Central European Summer Time)
+[debug] [2025-08-26T11:03:52.325Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-26T11:03:52.521Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-26T11:03:52.522Z] > authorizing via signed-in user (sandort99@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2025-08-26T11:03:52.535Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-08-26T11:03:52.535Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project ifinapok25. This may result in unexpected behavior. 
+[debug] [2025-08-26T11:03:52.539Z] [hub] writing locator at C:\Users\csgorkev\AppData\Local\Temp\hub-ifinapok25.json
+[debug] [2025-08-26T11:03:52.555Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-08-26T11:03:52.555Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-08-26T11:03:52.556Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-08-26T11:03:52.556Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2025-08-26T11:03:52.571Z] defaultcredentials: writing to file C:\Users\csgorkev\AppData\Roaming\firebase\sandort99_gmail_com_application_default_credentials.json
+[debug] [2025-08-26T11:03:52.571Z] Setting GAC to C:\Users\csgorkev\AppData\Roaming\firebase\sandort99_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\csgorkev\\AppData\\Roaming\\firebase\\sandort99_gmail_com_application_default_credentials.json"}}
+[debug] [2025-08-26T11:03:52.572Z] Checked if tokens are valid: true, expires at: 1756209208931
+[debug] [2025-08-26T11:03:52.572Z] Checked if tokens are valid: true, expires at: 1756209208931
+[debug] [2025-08-26T11:03:52.573Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ifinapok25/adminSdkConfig [none]
+[debug] [2025-08-26T11:03:52.955Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ifinapok25/adminSdkConfig 200
+[debug] [2025-08-26T11:03:52.955Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ifinapok25/adminSdkConfig {"projectId":"ifinapok25","storageBucket":"ifinapok25.firebasestorage.app"}
+[info] i  functions: Watching "C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\csgorkev\\Desktop\\Csendesnap2025\\ifinapok25\\ifinapok-functions\" for Cloud Functions..."}}
+[debug] [2025-08-26T11:03:52.977Z] Validating nodejs source
+[debug] [2025-08-26T11:03:53.655Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "stripe": "^18.4.0"
+  },
+  "devDependencies": {
+    "@types/stripe": "^8.0.416",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^5.7.3"
+  },
+  "private": true
+}
+[debug] [2025-08-26T11:03:53.655Z] Building nodejs source
+[debug] [2025-08-26T11:03:53.655Z] Failed to find version of module node: reached end of search path C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules
+[warn] !  functions: You've requested "node" version "22", but the standalone Firebase CLI comes with bundled Node "20". 
+[info] +  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2025-08-26T11:03:53.658Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-08-26T11:03:53.666Z] Found firebase-functions binary at 'C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8102
+
+[error] TypeError: Cannot read properties of undefined (reading 'secret')
+    at Object.<anonymous> (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\lib\index.js:52:83)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1898:32)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+    at Module.require (pkg/prelude/bootstrap.js:1855:31)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\firebase-functions\lib\runtime\loader.js:40:16)
+
+[debug] [2025-08-26T11:03:54.393Z] Got response code 400; body Failed to generate manifest from function source: Cannot read properties of undefined (reading 'secret')
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-08-26T11:03:58.420Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2025-08-26T11:05:27.161Z] File C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\lib\index.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\csgorkev\\Desktop\\Csendesnap2025\\ifinapok25\\ifinapok-functions\\lib\\index.js.map changed, reloading triggers"}}
+[debug] [2025-08-26T11:05:27.163Z] File C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\lib\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\csgorkev\\Desktop\\Csendesnap2025\\ifinapok25\\ifinapok-functions\\lib\\index.js changed, reloading triggers"}}
+[debug] [2025-08-26T11:05:28.174Z] Validating nodejs source
+[debug] [2025-08-26T11:05:28.885Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "stripe": "^18.4.0"
+  },
+  "devDependencies": {
+    "@types/stripe": "^8.0.416",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^5.7.3"
+  },
+  "private": true
+}
+[debug] [2025-08-26T11:05:28.886Z] Building nodejs source
+[debug] [2025-08-26T11:05:28.886Z] Failed to find version of module node: reached end of search path C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules
+[warn] !  functions: You've requested "node" version "22", but the standalone Firebase CLI comes with bundled Node "20". 
+[info] +  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2025-08-26T11:05:35.287Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-08-26T11:05:35.293Z] Found firebase-functions binary at 'C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8150
+
+[error] TypeError: Cannot read properties of undefined (reading 'secret')
+    at Object.<anonymous> (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\lib\index.js:52:83)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1898:32)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+    at Module.require (pkg/prelude/bootstrap.js:1855:31)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\firebase-functions\lib\runtime\loader.js:40:16)
+
+[debug] [2025-08-26T11:05:36.010Z] Got response code 400; body Failed to generate manifest from function source: Cannot read properties of undefined (reading 'secret')
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-08-26T11:07:09.856Z] File C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\src\index.ts changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\csgorkev\\Desktop\\Csendesnap2025\\ifinapok25\\ifinapok-functions\\src\\index.ts changed, reloading triggers"}}
+[debug] [2025-08-26T11:07:10.859Z] Validating nodejs source
+[debug] [2025-08-26T11:07:11.571Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "stripe": "^18.4.0"
+  },
+  "devDependencies": {
+    "@types/stripe": "^8.0.416",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^5.7.3"
+  },
+  "private": true
+}
+[debug] [2025-08-26T11:07:11.571Z] Building nodejs source
+[debug] [2025-08-26T11:07:11.571Z] Failed to find version of module node: reached end of search path C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules
+[warn] !  functions: You've requested "node" version "22", but the standalone Firebase CLI comes with bundled Node "20". 
+[info] +  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2025-08-26T11:07:11.574Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-08-26T11:07:11.580Z] Found firebase-functions binary at 'C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\.bin\firebase-functions'
+[debug] [2025-08-26T11:07:11.583Z] File C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\src\index.ts changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\csgorkev\\Desktop\\Csendesnap2025\\ifinapok25\\ifinapok-functions\\src\\index.ts changed, reloading triggers"}}
+[info] Serving at port 8318
+
+[error] TypeError: Cannot read properties of undefined (reading 'secret')
+    at Object.<anonymous> (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\lib\index.js:52:83)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1898:32)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+    at Module.require (pkg/prelude/bootstrap.js:1855:31)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\firebase-functions\lib\runtime\loader.js:40:16)
+
+[debug] [2025-08-26T11:07:12.305Z] Got response code 400; body Failed to generate manifest from function source: Cannot read properties of undefined (reading 'secret')
+[debug] [2025-08-26T11:07:12.594Z] Validating nodejs source
+[debug] [2025-08-26T11:07:13.268Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "stripe": "^18.4.0"
+  },
+  "devDependencies": {
+    "@types/stripe": "^8.0.416",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^5.7.3"
+  },
+  "private": true
+}
+[debug] [2025-08-26T11:07:13.269Z] Building nodejs source
+[debug] [2025-08-26T11:07:13.269Z] Failed to find version of module node: reached end of search path C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules
+[warn] !  functions: You've requested "node" version "22", but the standalone Firebase CLI comes with bundled Node "20". 
+[info] +  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2025-08-26T11:07:13.271Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-08-26T11:07:13.277Z] Found firebase-functions binary at 'C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8269
+
+[error] TypeError: Cannot read properties of undefined (reading 'secret')
+    at Object.<anonymous> (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\lib\index.js:52:83)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1898:32)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+    at Module.require (pkg/prelude/bootstrap.js:1855:31)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\firebase-functions\lib\runtime\loader.js:40:16)
+
+[debug] [2025-08-26T11:07:14.035Z] Got response code 400; body Failed to generate manifest from function source: Cannot read properties of undefined (reading 'secret')
+[debug] [2025-08-26T11:07:16.324Z] File C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\src\index.ts changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\csgorkev\\Desktop\\Csendesnap2025\\ifinapok25\\ifinapok-functions\\src\\index.ts changed, reloading triggers"}}
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-08-26T11:07:17.335Z] Validating nodejs source
+[debug] [2025-08-26T11:07:18.048Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "stripe": "^18.4.0"
+  },
+  "devDependencies": {
+    "@types/stripe": "^8.0.416",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^5.7.3"
+  },
+  "private": true
+}
+[debug] [2025-08-26T11:07:18.048Z] Building nodejs source
+[debug] [2025-08-26T11:07:18.048Z] Failed to find version of module node: reached end of search path C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules
+[warn] !  functions: You've requested "node" version "22", but the standalone Firebase CLI comes with bundled Node "20". 
+[info] +  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2025-08-26T11:07:18.051Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-08-26T11:07:18.056Z] Found firebase-functions binary at 'C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\.bin\firebase-functions'
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[info] Serving at port 8758
+
+[error] TypeError: Cannot read properties of undefined (reading 'secret')
+    at Object.<anonymous> (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\lib\index.js:52:83)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1898:32)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+    at Module.require (pkg/prelude/bootstrap.js:1855:31)
+    at require (node:internal/modules/helpers:179:18)
+    at loadModule (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\firebase-functions\lib\runtime\loader.js:40:16)
+
+[debug] [2025-08-26T11:07:18.782Z] Got response code 400; body Failed to generate manifest from function source: Cannot read properties of undefined (reading 'secret')
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-08-26T11:07:25.991Z] Received signal SIGINT (Ctrl-C) 1
+[debug] [2025-08-26T11:07:31.730Z] ----------------------------------------------------------------------
+[debug] [2025-08-26T11:07:31.732Z] Command:       C:\Users\csgorkev\DOWNLO~1\firebase-tools-instant-win.exe C:\Users\csgorkev\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase emulators:start --only functions
+[debug] [2025-08-26T11:07:31.732Z] CLI Version:   14.14.0
+[debug] [2025-08-26T11:07:31.733Z] Platform:      win32
+[debug] [2025-08-26T11:07:31.733Z] Node Version:  v20.18.2
+[debug] [2025-08-26T11:07:31.733Z] Time:          Tue Aug 26 2025 13:07:31 GMT+0200 (Central European Summer Time)
+[debug] [2025-08-26T11:07:31.733Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-26T11:07:31.931Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-26T11:07:31.932Z] > authorizing via signed-in user (sandort99@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2025-08-26T11:07:31.945Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-08-26T11:07:31.945Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project ifinapok25. This may result in unexpected behavior. 
+[debug] [2025-08-26T11:07:31.949Z] [hub] writing locator at C:\Users\csgorkev\AppData\Local\Temp\hub-ifinapok25.json
+[debug] [2025-08-26T11:07:31.968Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-08-26T11:07:31.969Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-08-26T11:07:31.969Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-08-26T11:07:31.969Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2025-08-26T11:07:31.984Z] defaultcredentials: writing to file C:\Users\csgorkev\AppData\Roaming\firebase\sandort99_gmail_com_application_default_credentials.json
+[debug] [2025-08-26T11:07:31.985Z] Setting GAC to C:\Users\csgorkev\AppData\Roaming\firebase\sandort99_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\csgorkev\\AppData\\Roaming\\firebase\\sandort99_gmail_com_application_default_credentials.json"}}
+[debug] [2025-08-26T11:07:31.985Z] Checked if tokens are valid: true, expires at: 1756209208931
+[debug] [2025-08-26T11:07:31.986Z] Checked if tokens are valid: true, expires at: 1756209208931
+[debug] [2025-08-26T11:07:31.987Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ifinapok25/adminSdkConfig [none]
+[debug] [2025-08-26T11:07:32.302Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ifinapok25/adminSdkConfig 200
+[debug] [2025-08-26T11:07:32.302Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ifinapok25/adminSdkConfig {"projectId":"ifinapok25","storageBucket":"ifinapok25.firebasestorage.app"}
+[info] i  functions: Watching "C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\csgorkev\\Desktop\\Csendesnap2025\\ifinapok25\\ifinapok-functions\" for Cloud Functions..."}}
+[debug] [2025-08-26T11:07:32.323Z] Validating nodejs source
+[debug] [2025-08-26T11:07:33.006Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "stripe": "^18.4.0"
+  },
+  "devDependencies": {
+    "@types/stripe": "^8.0.416",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^3.1.0",
+    "typescript": "^5.7.3"
+  },
+  "private": true
+}
+[debug] [2025-08-26T11:07:33.007Z] Building nodejs source
+[debug] [2025-08-26T11:07:33.007Z] Failed to find version of module node: reached end of search path C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules
+[warn] !  functions: You've requested "node" version "22", but the standalone Firebase CLI comes with bundled Node "20". 
+[info] +  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2025-08-26T11:07:33.010Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-08-26T11:07:33.018Z] Found firebase-functions binary at 'C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8464
+
+[error] Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\stripe\cjs\stripe.core.js:156:23)
+    at new Stripe (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\node_modules\stripe\cjs\stripe.core.js:94:14)
+    at Object.<anonymous> (C:\Users\csgorkev\Desktop\Csendesnap2025\ifinapok25\ifinapok-functions\lib\index.js:53:16)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._compile (pkg/prelude/bootstrap.js:1898:32)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+    at Module.require (pkg/prelude/bootstrap.js:1855:31)
+
+[debug] [2025-08-26T11:07:33.746Z] Got response code 400; body Failed to generate manifest from function source: Neither apiKey nor config.authenticator provided
+[error] !!  functions: Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: Functions codebase could not be analyzed successfully. It may have a syntax or runtime error"}}
+[debug] [2025-08-26T11:07:37.777Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2025-08-26T11:08:00.949Z] Received signal SIGINT (Ctrl-C) 1
