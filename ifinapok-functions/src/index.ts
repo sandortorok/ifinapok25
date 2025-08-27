@@ -3,6 +3,7 @@ import { onRequest } from "firebase-functions/v2/https";
 import * as logger from "firebase-functions/logger";
 import Stripe from "stripe"
 import 'dotenv/config';
+import cors from 'cors';
 
 // import * as functions from "firebase-functions";
 
@@ -23,7 +24,18 @@ const stripe = new Stripe(stripeSecretKey,{
   apiVersion: "2025-07-30.basil"
 })
 
+const corsHandler = cors({ origin: true });
 export const createCheckoutSession = onRequest(async (req, res)=>{
+  corsHandler(req, res, async () => {
+    if (req.method === "OPTIONS") {
+      // preflight
+      res.status(204).send('');
+      return;
+    }
+    if (req.method !== "POST") {
+      res.status(405).send({ error: "Method not allowed" });
+      return;
+    }})
   const finalPrice = req.body.price
   try {
     const session = await stripe.checkout.sessions.create({

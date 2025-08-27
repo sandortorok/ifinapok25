@@ -1,8 +1,4 @@
-<section
-  id="section1"
-  class="section"
-  style="background-color: rgb(231, 235, 217)"
->
+<section id="form" class="section" style="background-color: rgb(231, 235, 217)">
   <h1 style="text-align: center">JELENTKEZÉS</h1>
 
   <form
@@ -65,19 +61,18 @@
       </div>
     </div>
     <div class="grid1x2">
-
       <div>
         <label id="vehicle">Sofőr vagy? (és autóval jössz)</label>
         <mat-radio-group
-        formControlName="vehicle"
-        aria-labelledby="vehicle"
-        class="radio-group"
+          formControlName="vehicle"
+          aria-labelledby="vehicle"
+          class="radio-group"
         >
-        <mat-radio-button value="yes">Igen</mat-radio-button>
-        <mat-radio-button value="no">Nem</mat-radio-button>
-      </mat-radio-group>
-    </div>
-          <div *ngIf="myForm.get('hotel')?.value === 'need'">
+          <mat-radio-button value="yes">Igen</mat-radio-button>
+          <mat-radio-button value="no">Nem</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div *ngIf="myForm.get('hotel')?.value === 'need'">
         <label id="hotel-pref-label">Hol aludnál szívesebben?</label>
         <mat-radio-group
           formControlName="mass"
@@ -88,7 +83,7 @@
           <mat-radio-button value="house">Háznál</mat-radio-button>
         </mat-radio-group>
       </div>
-  </div>
+    </div>
     <div class="grid1x2">
       <div>
         <label id="organizer">Szervező vagy?</label>
@@ -104,39 +99,91 @@
       <div>
         <label>Melyik napokra jössz?</label>
         <div style="margin: 15px 0">
-            <div>
-                <mat-checkbox formControlName="friday">Péntek</mat-checkbox>
-            </div>
+          <div>
+            <mat-checkbox formControlName="friday">Péntek</mat-checkbox>
+          </div>
           <mat-checkbox formControlName="saturday">Szombat</mat-checkbox>
         </div>
       </div>
     </div>
     <div class="grid1x2">
-
       <div>
         <label id="birthday" style="margin-bottom: 10px">Születési Dátum</label>
         <mat-form-field class="datePicker">
           <input formControlName="date" matInput [matDatepicker]="picker" />
           <mat-datepicker-toggle
-          matIconSuffix
-          [for]="picker"
+            matIconSuffix
+            [for]="picker"
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
     </div>
+    <div class="grid1x2">
+      <div>
+        <label id="shirt">Szeretnél Pólót rendelni?</label>
+        <mat-radio-group
+          formControlName="shirt"
+          aria-labelledby="shirt"
+          class="radio-group"
+        >
+          <mat-radio-button value="yes">Igen</mat-radio-button>
+          <mat-radio-button value="no">Nem</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="grid1x2" *ngIf="myForm.get('shirt')?.value === 'yes'" style="grid-template-columns: 1fr; overflow-x: auto;">
+      <table>
+        <tr>
+          <th>Módosítás</th>
+          <th>Méret</th>
+          <th>Szín</th>
+          <th>Ár</th>
+        </tr>
+        @for (shirt of shirts; track shirt.idx){
+          <tr>
+            <td><button mat-button type="button"  style="font-size: larger" (click)="removeShirt(shirt.idx)">
+              <mat-icon style="margin:0" fontIcon="delete"></mat-icon>
+            </button></td>
+            <td>
+              <mat-button-toggle-group [name]="'size'+ shirt.idx" [formControlName]="'size'+ shirt.idx" [(ngModel)]="shirt.size">
+                <mat-button-toggle value="S">S</mat-button-toggle>
+                <mat-button-toggle value="M">M</mat-button-toggle>
+                <mat-button-toggle value="L">L</mat-button-toggle>
+                <mat-button-toggle value="XL">XL</mat-button-toggle>
+                <mat-button-toggle value="XXL">XXL</mat-button-toggle>
+              </mat-button-toggle-group>
+            </td>
+            <td>
+                <mat-button-toggle-group [name]="'color'+ shirt.idx"  [formControlName]="'color'+ shirt.idx" [(ngModel)]="shirt.color">
+                  <mat-button-toggle value="blue">KÉK</mat-button-toggle>
+                  <mat-button-toggle value="white">FEHÉR</mat-button-toggle>
+              </mat-button-toggle-group>
+            </td>
+            <td>{{shirtPrice}} Ft</td>
+          </tr>
+        }
+        <tr>
+          <td><button mat-button type="button" style="font-size: larger" (click)="addShirt()">+</button></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
     <div class="grid1x2" style="margin-top: 50px; margin-bottom: 50px">
-      <img src="stripe-logo.png" class="stripe-logo" alt="stripe-logo">
-      <div style="font-size: 100%;   display: flex;
-  align-items: center;">
+      <img src="stripe-logo.png" class="stripe-logo" alt="stripe-logo" />
+      <div style="font-size: 100%; display: flex; align-items: center">
         <div>
-          Fizetendő összeg: <span class="highlight">{{price}} Ft</span>
-          <p style="margin:0">(A fizetés csak online lehetséges)</p>
+          Fizetendő összeg: <span class="highlight">{{ price }} Ft</span>
+          <p style="margin: 0">(A fizetés csak online lehetséges)</p>
         </div>
       </div>
     </div>
-    <div style="display: flex; justify-content: center;margin: 30px 0">
-      <button  type="submit" [disabled]="myForm.invalid" mat-stroked-button>Jelentkezés Leadása</button>
+    <div style="display: flex; justify-content: center; margin: 30px 0">
+      <button type="submit" [disabled]="myForm.invalid" mat-stroked-button>
+        Jelentkezés Leadása
+      </button>
     </div>
   </form>
 </section>

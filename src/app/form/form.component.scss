@@ -34,7 +34,7 @@
 }
 .stripe-logo{
   width:80%;
-  min-width:250px;
+  min-width:220px;
   height: auto;
 }
 .highlight {
@@ -43,6 +43,20 @@
 label {
   display:block
 }
+tr{
+  border-bottom: 1px solid black;
+}
+td{
+  text-align: center;
+}
+th{
+  border-bottom: 1px solid black
+}
+td, th {
+  padding: 8px;
+  border: 1px solid gray
+}
+// tr:nth-child(even){background-color: #f2f2f2;}
 @media screen and (max-width: 950px) {
   .grid1x2 {
     display: grid;
@@ -61,5 +75,14 @@ label {
   }
 }
 
-@media screen and (max-width: 1220px) {
+@media screen and (max-width: 500px) {
+  .datePicker{
+    width: 200px
+  }
+  .stripe-logo{
+    width:200px
+  }
+}
+
+table{
 }

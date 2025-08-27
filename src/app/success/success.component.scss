@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.main-box{
+    width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    height: 350px;
+    margin: 0 auto;
+    display:flex;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); 
+}
+img{
+    position: absolute; margin-top: -50px;width: 100px
+}
+p{
+    color: rgb(63, 58, 58); text-align: center;
+    margin:0
+}
+h1 {
+    color:rgb(63, 58, 58); margin-top: 30px;text-align: center;
+}
+button{
+    margin-top:60px;
+    text-align: center;
+}

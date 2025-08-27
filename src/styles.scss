@@ -1,19 +1,29 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
-
+// $red-palette, $green-palette, $blue-palette,
+//   $yellow-palette, $cyan-palette, $magenta-palette, $orange-palette,
+//   $chartreuse-palette, $spring-green-palette, $azure-palette, $violet-palette, $rose-palette;
 html {
+  color-scheme: light;
   @include mat.theme((
-    color: (
-      theme-type: light,
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
+    color: mat.$spring-green-palette,
     typography: Roboto,
-    density: 0,
+    density: 0
   ));
-}/* You can add global styles to this file, and also import other style files */
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin:0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #ececee;
+  background-color: #353746;
+  height: 100vh;
+  width: 100%;
+}

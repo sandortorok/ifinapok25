@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +22,8 @@ import { minAgeValidator } from '../validators/age.validator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { environment } from '../../environments/environment';
 import { StripeService } from '../stripe/stripe.service';
+import { DataService } from '../data.service';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-form',
@@ -41,24 +43,33 @@ import { StripeService } from '../stripe/stripe.service';
     MatDatepickerModule,
     ReactiveFormsModule,
     MatCheckboxModule,
+    MatButtonToggleModule
   ],
   standalone: true,
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
-export class FormComponent {
-  constructor(private stripeService: StripeService){
-    // Listen to value changes
+export class FormComponent implements OnInit{
+  shirtPrice = 2500
+  shirtidx = 1;
+  shirts = [{size: '', color:'', idx: 0}]
+  constructor(private stripeService: StripeService, private dataService: DataService){}
+  ngOnInit(): void {
+    this.shirts.forEach((item) => {
+      this.myForm.addControl('size' + item.idx, new FormControl('', [Validators.required]));
+      this.myForm.addControl('color' + item.idx, new FormControl('', [Validators.required]));
+    });
     this.myForm.valueChanges.subscribe(formValues => {
       let basePrice =  (formValues.friday ?? 0 ) * 2000 + (formValues.saturday ?? 0 )*2000;
       if (formValues.organizer && formValues.organizer === 'yes'){
         basePrice = 0
       }
-      this.price = basePrice
+      let addedShirtsPrice = formValues.shirt === 'no' ? 0 : this.shirts.length * this.shirtPrice 
+      this.price = basePrice + addedShirtsPrice
     });
   }
   price = 0
-  myForm = new FormGroup({
+  myForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(5)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     gender: new FormControl('', [Validators.required]),
@@ -72,15 +83,33 @@ export class FormComponent {
     organizer: new FormControl('', [Validators.required]),
     friday: new FormControl(0, []),
     saturday: new FormControl(0, []),
+    shirt: new FormControl('', [Validators.required]),
   });
 
   onSubmit() {
     console.warn(this.myForm.value);
+    const paid = this.price == 0 ? true : false
+    let finalData = {...this.myForm.value, paid, price: this.price}
+    this.dataService.addItem(finalData).then(()=>{
+      console.log('Adat feltöltve');
+    })
     if (this.price > 0){
       this.stripeService.checkout(this.price)
     }
     else {
-
+      //TODO: Go to success page
     }
+  }
+  addShirt(){
+    this.shirts.push({size:'', color:'', idx: this.shirtidx})
+    this.myForm.addControl('size' + this.shirtidx, new FormControl('', [Validators.required]));
+    this.myForm.addControl('color' + this.shirtidx, new FormControl('', [Validators.required]));
+    this.shirtidx++
+  }
+  removeShirt(idx: number){
+    const rmIdx = this.shirts.findIndex(shirt => shirt.idx === idx)
+    this.shirts.splice(rmIdx, 1)
+    this.myForm.removeControl('size'+idx)
+    this.myForm.removeControl('color'+idx)
   }
 }
