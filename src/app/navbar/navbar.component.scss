@@ -2,27 +2,20 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 
-
 .nav {
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  justify-content: center; /* vízszintesen középre */
+  align-items: center;     /* függőlegesen középre */
+  height: 100vh;           /* az egész viewport magasságát használja */
   box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.3);
 }
 
 .nav ul {
-  position: absolute;
-  top: 50%;
-  left: 0;
+  position: relative;
   width: 100%;
   padding: 0;
   margin: 0;
   text-align: center;
-  transform: translateY(-50%);
   list-style: none;
 }
 .nav ul li {
