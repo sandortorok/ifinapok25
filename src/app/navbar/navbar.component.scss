@@ -29,7 +29,7 @@
   margin: 10px 0;
 }
 .nav ul li a {
-  font-size: 9vh;
+  font-size: 9dvh;
   text-transform: uppercase;
   line-height: 1.2;
   font-weight: 800;
@@ -48,8 +48,8 @@
   position: absolute;
   top: 50%;
   content: "";
-  height: 2vh;
-  margin-top: -1vh;
+  height: 2dvh;
+  margin-top: -1dvh;
   width: 0;
   left: 0;
   background-color: #353746;
@@ -63,7 +63,7 @@
 
 @media screen and (max-width: 991px) {
   .nav ul li a {
-    font-size: 6vh;
+    font-size: 6dvh;
   }
   .nav ul li {
     margin: 20px 0;
@@ -71,7 +71,7 @@
 }
 @media screen and (max-width: 440px) {
   .nav ul li a {
-    font-size: 4vh;
+    font-size: 4dvh;
   }
   .nav ul li {
     margin: 30px 0;
