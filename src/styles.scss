@@ -1,23 +1,17 @@
-@use '@angular/material' as mat;
-// $red-palette, $green-palette, $blue-palette,
-//   $yellow-palette, $cyan-palette, $magenta-palette, $orange-palette,
-//   $chartreuse-palette, $spring-green-palette, $azure-palette, $violet-palette, $rose-palette;
-html {
-  color-scheme: light;
-  @include mat.theme((
-    color: mat.$spring-green-palette,
-    typography: Roboto,
-    density: 0
-  ));
+@use 'styles/spring-green-theme';
+html,
+body {
+  height: 100%;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 html {
   scroll-behavior: smooth;
 }
 body {
-  margin:0;
+  margin: 0;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 15px;

@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+
+$spring-green-primary: mat.$spring-green-palette;
+$spring-green-tertiary: mat.$cyan-palette;
+
+$spring-green-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: $spring-green-primary,
+    tertiary: $spring-green-tertiary,
+  ),
+));
+
+html {
+  @include mat.all-component-themes($spring-green-theme);
+}
