@@ -1,4 +1,25 @@
-.section {
-  min-height: 100vh; /* legalább egy képernyőnyi */
-  color: black;
+
+.container {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(223, 216, 181);
+}
+
+main {
+    height: 75%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+footer {
+    background: url(/pattern-hills-light.svg) top right 16% / 290% 100% no-repeat;
+    height: 25%;
+}
+
+@media (min-width: 1024px) {
+    footer {
+        background-position: center;
+        background-size: cover;
+    }
 }
