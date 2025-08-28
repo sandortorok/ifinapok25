@@ -1,6 +1,6 @@
 <section id="form" class="section" style="background-color: rgb(231, 235, 217)">
-  <h1 style="text-align: center">JELENTKEZÉS</h1>
-
+  <h1 style="text-align: center">Ifjúsági Csendesnap Regisztráció</h1>
+  
   <form
     class="example-form"
     style="border: 1px solid gray"
@@ -119,8 +119,8 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="grid1x2">
-      <div>
+    <div class="grid1x2" >
+      <div style="">
         <label id="shirt">Szeretnél Pólót rendelni?</label>
         <mat-radio-group
           formControlName="shirt"
@@ -130,6 +130,17 @@
           <mat-radio-button value="yes">Igen</mat-radio-button>
           <mat-radio-button value="no">Nem</mat-radio-button>
         </mat-radio-group>
+      </div>
+      <div style="display: flex; gap: 1rem">
+        <div>
+          <p style="text-align: center; font-weight: bold; margin:0">Kék Póló</p>
+          <img src="blueshirt.jpg" style="width: 100px;" alt="">
+        </div>
+        <div>
+          <p style="text-align: center; font-weight: bold; margin:0">Fehér Póló</p>
+          <img src="whiteshirt.jpg" style="width: 100px;" alt="">
+        </div>
+
       </div>
     </div>
     <div class="grid1x2" *ngIf="myForm.get('shirt')?.value === 'yes'" style="grid-template-columns: 1fr; overflow-x: auto;">

@@ -10,6 +10,7 @@
   grid-template-rows: 1fr; /* egy sor */
   gap: 40px;
   margin: 20px;
+  padding: 10px;
 }
 
 .example-full-width {
@@ -82,7 +83,4 @@ td, th {
   .stripe-logo{
     width:200px
   }
-}
-
-table{
 }
