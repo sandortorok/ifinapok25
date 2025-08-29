@@ -6,7 +6,7 @@
   top: 0%;
   left: 0%;
   width: 100%;
-  position: absolute;
+  position: relative;
 }
 
 .nav ul {
@@ -29,7 +29,6 @@
   }
 }
 .nav ul li a {
-  font-size: 2dvh;
   text-transform: uppercase;
   line-height: 1.2;
   font-weight: 800;
@@ -99,7 +98,8 @@ ul li:nth-child(2){
     text-transform: uppercase;
     text-align: center;
     width: 90%;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
+    margin-top: 2em;
     letter-spacing: .4em;
 }
 
@@ -184,7 +184,7 @@ ul li:nth-child(2){
 }
 
 .container {
-    height: 100dvh;
+    min-height: 100dvh;
     width: 100%;
     overflow: hidden;
     background-color: var(--color-very-dark-blue);
@@ -192,15 +192,14 @@ ul li:nth-child(2){
 
 main {
     background: url(/bg-stars.svg) center / contain repeat;
-    height: 75%;
+    min-height: 75dvh;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
     align-items: center;
 }
 footer {
     background: url(/pattern-hills.svg) top right 16% / 290% 100% no-repeat;
-    height: 25%;
+    min-height: 25dvh;
     width: 100%
 }
 
@@ -348,8 +347,7 @@ footer {
     margin: 5px;
   }
   .nav ul li a {
-    font-size: 1.5dvh;
-    margin: 5px
+    font-size: 0.75em
   }
 }
 @media screen and (max-width: 650px) {
