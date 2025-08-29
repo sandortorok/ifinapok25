@@ -43,9 +43,12 @@
 ul li:nth-child(2){
   margin-left: auto !important
 }
+.nav ul li a.main-title{
+  color: var(--color-orange);
+}
 .nav ul li a:hover {
   text-decoration: none !important;
-  color: rgb(187, 209, 90);
+  color: var(--color-orange);
 }
 .nav ul li a:after {
   display: block;
@@ -141,7 +144,7 @@ ul li:nth-child(2){
 
 .time > span {
     display: block;
-    color: var(--color-red);
+    color: var(--color-orange);
     font-size: 2.5em;
     z-index: 2;
 }
@@ -218,7 +221,7 @@ footer {
 }
 
 .socials > .icon:hover path {
-    fill: var(--color-red);
+    fill: var(--color-orange);
 }
 
 .attribution {
