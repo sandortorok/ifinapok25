@@ -54,7 +54,8 @@ export const createCheckoutSession = onRequest(async (req, res)=>{
         }
       ],
       success_url: req.body.successUrl,
-      cancel_url: req.body.cancelUrl
+      cancel_url: req.body.cancelUrl,
+      client_reference_id: req.body.userId
     });
     res.status(200).send({ id: session.id, url: session.url });
   } catch(error: any) {

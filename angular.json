@@ -31,7 +31,9 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "https://cdn.lineicons.com/5.0/lineicons.css",
+              "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
             ],
             "scripts": []
           },

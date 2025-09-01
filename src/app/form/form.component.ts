@@ -24,6 +24,7 @@ import { environment } from '../../environments/environment';
 import { StripeService } from '../stripe/stripe.service';
 import { DataService } from '../data.service';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -51,16 +52,24 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 })
 export class FormComponent implements OnInit{
   shirtPrice = 2500
-  shirtidx = 1;
-  shirts = [{size: '', color:'', idx: 0}]
-  constructor(private stripeService: StripeService, private dataService: DataService){}
+  shirtidx = 0;
+  shirts: Array<{idx: number, color: string, size: string}> = []
+  constructor(private stripeService: StripeService, private dataService: DataService, private router: Router){}
   ngOnInit(): void {
-    this.shirts.forEach((item) => {
-      this.myForm.addControl('size' + item.idx, new FormControl('', [Validators.required]));
-      this.myForm.addControl('color' + item.idx, new FormControl('', [Validators.required]));
-    });
+    this.shirt?.valueChanges.subscribe(value=>{
+      if (value === 'no'){
+        this.shirts.forEach(shirt=>{
+          this.myForm.removeControl('size'+shirt.idx)
+          this.myForm.removeControl('color'+shirt.idx)
+        })
+        this.shirts = []
+      }
+      else if(value === 'yes'){
+        this.addShirt()
+      }
+    })
     this.myForm.valueChanges.subscribe(formValues => {
-      let basePrice =  (formValues.friday ?? 0 ) * 2000 + (formValues.saturday ?? 0 )*2000;
+      let basePrice = (formValues.friday ?? 0 ) * 2000 + (formValues.saturday ?? 0 )*2000;
       if (formValues.organizer && formValues.organizer === 'yes'){
         basePrice = 0
       }
@@ -90,15 +99,14 @@ export class FormComponent implements OnInit{
     console.warn(this.myForm.value);
     const paid = this.price == 0 ? true : false
     let finalData = {...this.myForm.value, paid, price: this.price}
-    this.dataService.addItem(finalData).then(()=>{
-      console.log('Adat feltöltve');
+    this.dataService.addItem(finalData).then((docRef)=>{
+      if (this.price > 0){
+        this.stripeService.checkout(this.price, docRef.id)
+      }
+      else {
+        this.router.navigate(['/success'])
+      }
     })
-    if (this.price > 0){
-      this.stripeService.checkout(this.price)
-    }
-    else {
-      //TODO: Go to success page
-    }
   }
   addShirt(){
     this.shirts.push({size:'', color:'', idx: this.shirtidx})
@@ -112,4 +120,8 @@ export class FormComponent implements OnInit{
     this.myForm.removeControl('size'+idx)
     this.myForm.removeControl('color'+idx)
   }
+  get shirt() {
+    return this.myForm.get('shirt');
+  }
+
 }
