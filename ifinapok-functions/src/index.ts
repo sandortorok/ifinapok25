@@ -25,7 +25,7 @@ if (!stripeWebhookSecret) {
   throw new Error("Stripe webhook secret is not set in environment variables!");
 }
 const stripe = new Stripe(stripeSecretKey,{
-  apiVersion: "2025-07-30.basil"
+  apiVersion: "2025-08-27.basil"
 })
 
 const corsHandler = cors({ origin: true });
@@ -72,7 +72,9 @@ export const stripeWebhook = onRequest((req, res) => {
   const sig = req.headers["stripe-signature"] as string;
 
   let event: Stripe.Event;
-
+  const parsed = JSON.parse(req.rawBody.toString("utf8"));
+  console.log('rawBody parsed:',parsed);
+  console.log("stripe-signature", req.headers["stripe-signature"]);
   try {
     event = stripe.webhooks.constructEvent(req.rawBody, sig, stripeWebhookSecret);
   } catch (err: any) {
