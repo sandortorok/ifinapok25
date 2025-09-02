@@ -20,7 +20,7 @@ export class StripeService {
 
     // Stripe inicializálás
     const stripe = await loadStripe(
-      'pk_live_51Q2HJ2IEpPypxL3pZydPS4VRIUkKZL0gUdehja0BPkEkws1ArthkNSUCDDJRNwgTMCk3zTJ1pj7AqDCHdkdDzDzg00JSiOmBsv'
+      'pk_test_51Mk5BQHyufV5ybJC4YV5ET0tkzb60r2BV6XBekKcYSx3mPKG7wNAt5R2FYaeQrjzNakuSh2Vpc5y8MIRD6KTb0Ao00VRd0piNB'
     );
 
     if (!stripe) throw new Error('Stripe init error');

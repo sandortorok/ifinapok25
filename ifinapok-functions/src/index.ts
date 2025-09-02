@@ -20,6 +20,10 @@ const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 if (!stripeSecretKey) {
   throw new Error("Stripe secret key is not set in environment variables!");
 }
+const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET
+if (!stripeWebhookSecret) {
+  throw new Error("Stripe webhook secret is not set in environment variables!");
+}
 const stripe = new Stripe(stripeSecretKey,{
   apiVersion: "2025-07-30.basil"
 })
@@ -55,7 +59,7 @@ export const createCheckoutSession = onRequest(async (req, res)=>{
       ],
       success_url: req.body.successUrl,
       cancel_url: req.body.cancelUrl,
-      client_reference_id: req.body.userId
+      metadata: { userId: req.body.userId }
     });
     res.status(200).send({ id: session.id, url: session.url });
   } catch(error: any) {
@@ -63,3 +67,31 @@ export const createCheckoutSession = onRequest(async (req, res)=>{
     res.status(500).send({error:error.message})
   }
 })
+
+export const stripeWebhook = onRequest((req, res) => {
+  const sig = req.headers["stripe-signature"] as string;
+
+  let event: Stripe.Event;
+
+  try {
+    event = stripe.webhooks.constructEvent(req.rawBody, sig, stripeWebhookSecret);
+  } catch (err: any) {
+    console.error("❌ Webhook signature hiba:", err.message);
+    res.status(400).send(`Webhook Error: ${err.message}`);
+    return; // fontos! -> így a return típusa void lesz, nem Response
+  }
+
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object as Stripe.Checkout.Session;
+    const userId = session.metadata?.userId;
+
+    console.log("✅ Fizetés megerősítve usernek:", userId);
+
+    // Példa Firestore frissítésre
+    // await admin.firestore().collection("users").doc(userId).update({
+    //   credits: admin.firestore.FieldValue.increment(100),
+    // });
+  }
+
+  res.json({ received: true });
+});
