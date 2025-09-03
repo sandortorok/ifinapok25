@@ -53,7 +53,7 @@ import { Router } from '@angular/router';
 export class FormComponent implements OnInit{
   shirtPrice = 2500
   shirtidx = 0;
-  shirts: Array<{idx: number, color: string, size: string}> = []
+  shirts: Array<{idx: number, color: string, size: string, galler: string, gender: string}> = []
   constructor(private stripeService: StripeService, private dataService: DataService, private router: Router){}
   ngOnInit(): void {
     this.shirt?.valueChanges.subscribe(value=>{
@@ -61,6 +61,9 @@ export class FormComponent implements OnInit{
         this.shirts.forEach(shirt=>{
           this.myForm.removeControl('size'+shirt.idx)
           this.myForm.removeControl('color'+shirt.idx)
+          this.myForm.removeControl('galler'+shirt.idx)
+          this.myForm.removeControl('gender'+shirt.idx)
+
         })
         this.shirts = []
       }
@@ -109,9 +112,12 @@ export class FormComponent implements OnInit{
     })
   }
   addShirt(){
-    this.shirts.push({size:'', color:'', idx: this.shirtidx})
+    this.shirts.push({size:'', color:'',galler:'',gender:'', idx: this.shirtidx})
     this.myForm.addControl('size' + this.shirtidx, new FormControl('', [Validators.required]));
     this.myForm.addControl('color' + this.shirtidx, new FormControl('', [Validators.required]));
+    this.myForm.addControl('galler' + this.shirtidx, new FormControl('', [Validators.required]));
+    this.myForm.addControl('gender' + this.shirtidx, new FormControl('', [Validators.required]));
+
     this.shirtidx++
   }
   removeShirt(idx: number){
@@ -119,6 +125,9 @@ export class FormComponent implements OnInit{
     this.shirts.splice(rmIdx, 1)
     this.myForm.removeControl('size'+idx)
     this.myForm.removeControl('color'+idx)
+    this.myForm.removeControl('galler'+idx)
+    this.myForm.removeControl('gender'+idx)
+
   }
   get shirt() {
     return this.myForm.get('shirt');

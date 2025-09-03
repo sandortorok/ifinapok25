@@ -149,6 +149,8 @@
           <th>Módosítás</th>
           <th>Méret</th>
           <th>Szín</th>
+          <th>Galléros</th>
+          <th>Szabás</th>
           <th>Ár</th>
         </tr>
         @for (shirt of shirts; track shirt.idx){
@@ -171,11 +173,25 @@
                   <mat-button-toggle value="white">FEHÉR</mat-button-toggle>
               </mat-button-toggle-group>
             </td>
+             <td>
+                <mat-button-toggle-group [name]="'galler'+ shirt.idx"  [formControlName]="'galler'+ shirt.idx" [(ngModel)]="shirt.galler">
+                  <mat-button-toggle value="yes">IGEN</mat-button-toggle>
+                  <mat-button-toggle value="no">NEM</mat-button-toggle>
+              </mat-button-toggle-group>
+            </td>
+            <td>
+                <mat-button-toggle-group [name]="'gender'+ shirt.idx"  [formControlName]="'gender'+ shirt.idx" [(ngModel)]="shirt.gender">
+                  <mat-button-toggle value="men">Férfi</mat-button-toggle>
+                  <mat-button-toggle value="women">Női</mat-button-toggle>
+              </mat-button-toggle-group>
+            </td>
             <td>{{shirtPrice}} Ft</td>
           </tr>
         }
         <tr>
           <td><button mat-button type="button" style="font-size: larger" (click)="addShirt()">+</button></td>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
