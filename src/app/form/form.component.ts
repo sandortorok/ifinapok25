@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,7 +26,12 @@ import { DataService } from '../data.service';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { Router } from '@angular/router';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogTitle,
+  MatDialogContent,
+} from '@angular/material/dialog';
 @Component({
   selector: 'app-form',
   providers: [
@@ -160,6 +165,15 @@ Az Ifjúsági Csendes Napok szervezői`}})
     this.myForm.removeControl('gender'+idx)
 
   }
+  dialog = inject(MatDialog)
+  openDialog(url: string, title: string){
+    this.dialog.open(ShirtDialog, {
+      data: {
+        url,
+        title
+      }
+    })
+  }
   get shirt() {
     return this.myForm.get('shirt');
   }
@@ -168,5 +182,18 @@ Az Ifjúsági Csendes Napok szervezői`}})
   }
   get name(){
     return this.myForm.get('name')!.value
+  }
+}
+
+
+@Component({
+  selector: 'shirt-dialog',
+  templateUrl: 'shirt-dialog.html',
+  imports: [MatDialogTitle, MatDialogContent]
+})
+export class ShirtDialog implements OnInit{
+  data = inject(MAT_DIALOG_DATA)
+  ngOnInit(): void {
+      console.log(this.data);
   }
 }
