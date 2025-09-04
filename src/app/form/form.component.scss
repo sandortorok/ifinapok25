@@ -3,7 +3,10 @@
   padding: 50px;
   color: black;
 }
-
+.seminar-checkbox {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 .grid1x2 {
   display: grid;
   grid-template-columns: 1fr 1fr; /* két egyenlő szélességű oszlop */
@@ -33,29 +36,30 @@
   margin: 15px 0;
   align-items: flex-start;
 }
-.stripe-logo{
-  width:80%;
-  min-width:220px;
+.stripe-logo {
+  width: 80%;
+  min-width: 220px;
   height: auto;
 }
 .highlight {
   font-weight: bold;
 }
 label {
-  display:block
+  display: block;
 }
-tr{
+tr {
   border-bottom: 1px solid black;
 }
-td{
+td {
   text-align: center;
 }
-th{
-  border-bottom: 1px solid black
+th {
+  border-bottom: 1px solid black;
 }
-td, th {
+td,
+th {
   padding: 8px;
-  border: 1px solid gray
+  border: 1px solid gray;
 }
 // tr:nth-child(even){background-color: #f2f2f2;}
 @media screen and (max-width: 950px) {
@@ -71,16 +75,16 @@ td, th {
     margin: 0 auto;
     padding: 10px;
   }
-  .stripe-logo{
-    width:70%
+  .stripe-logo {
+    width: 70%;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .datePicker{
-    width: 200px
+  .datePicker {
+    width: 200px;
   }
-  .stripe-logo{
-    width:200px
+  .stripe-logo {
+    width: 200px;
   }
 }
