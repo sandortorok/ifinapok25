@@ -115,7 +115,7 @@ export const stripeWebhook = onRequest(async (req, res) => {
 Köszönjük, hogy regisztráltál az Ifjúsági Csendes Napokra!  
 Örömmel várunk Téged 2025. október 24-én, hogy együtt tölthessünk két áldott, közösségi napot.
 
-Helyszín: Berettyóújfalu
+Helyszín: Berettyóújfalu, Bajcsy-Zsilinszky Endre utca 27, 4100
 Érkezés: 7:45
 Programkezdés: 8:00
 
