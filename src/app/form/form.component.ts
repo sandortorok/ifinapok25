@@ -25,6 +25,7 @@ import { StripeService } from '../stripe/stripe.service';
 import { DataService } from '../data.service';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { Router } from '@angular/router';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-form',
@@ -44,13 +45,15 @@ import { Router } from '@angular/router';
     MatDatepickerModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatProgressSpinnerModule
   ],
   standalone: true,
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
 export class FormComponent implements OnInit{
+  loading = false;
   shirtPrice = 2500
   shirtidx = 0;
   shirts: Array<{idx: number, color: string, size: string, galler: string, gender: string}> = []

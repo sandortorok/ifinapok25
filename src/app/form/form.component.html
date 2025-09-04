@@ -208,8 +208,13 @@
       </div>
     </div>
     <div style="display: flex; justify-content: center; margin: 30px 0">
-      <button type="submit" [disabled]="myForm.invalid" mat-stroked-button>
-        Jelentkezés Leadása
+      <button type="submit" [disabled]="myForm.invalid || loading" mat-stroked-button (click)="loading = true">
+        <ng-container *ngIf="!loading; else spinnerTpl">
+          Jelentkezés Leadása
+        </ng-container>
+        <ng-template #spinnerTpl>
+          <mat-spinner diameter="20"></mat-spinner>
+        </ng-template>
       </button>
     </div>
   </form>
