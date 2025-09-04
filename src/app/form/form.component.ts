@@ -127,7 +127,7 @@ export class FormComponent implements OnInit{
     let finalData = {...this.myForm.value, paid, price: this.price}
     this.dataService.addItem(finalData).then((docRef)=>{
       if (this.price > 0){
-        this.stripeService.checkout(this.price, docRef.id, finalData.name, finalData.email)
+        this.stripeService.checkout(200, docRef.id, finalData.name, finalData.email)
       }
       else {
         this.dataService.sendEmail({to: [this.email], message: {subject: 'Sikeres regisztráció - Ifjúsági Csendes Napok (Október 24.)', text:`Kedves ${this.name}!
