@@ -189,7 +189,7 @@ Az Ifjúsági Csendes Napok szervezői`}})
 @Component({
   selector: 'shirt-dialog',
   templateUrl: 'shirt-dialog.html',
-  imports: [MatDialogTitle, MatDialogContent]
+  imports: []
 })
 export class ShirtDialog implements OnInit{
   data = inject(MAT_DIALOG_DATA)
