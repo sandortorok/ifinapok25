@@ -11,7 +11,7 @@ export class StripeService {
   private functionUrl = `${environment.functionsBaseUrl}/createCheckoutSession`;
   constructor(private http: HttpClient) {}
   async checkout(price: number, firebaseId: string, name:string, email:string) {
-  let body = {price, successUrl: window.location.origin + '/success', cancelUrl: window.location.href, userId: firebaseId}
+  let body = {price, successUrl: window.location.origin + '/success', cancelUrl: window.location.href, userId: firebaseId, name, email}
   try {
     // Backend function meghívása
     const session = await firstValueFrom(
