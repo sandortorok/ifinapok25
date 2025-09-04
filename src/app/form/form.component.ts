@@ -54,7 +54,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 })
 export class FormComponent implements OnInit{
   loading = false;
-  shirtPrice = 2500
+  shirtPrice = 2600
+  gallerPrice = 3800
   shirtidx = 0;
   shirts: Array<{idx: number, color: string, size: string, galler: string, gender: string}> = []
   constructor(private stripeService: StripeService, private dataService: DataService, private router: Router){}
@@ -79,7 +80,21 @@ export class FormComponent implements OnInit{
       if (formValues.organizer && formValues.organizer === 'yes'){
         basePrice = 0
       }
-      let addedShirtsPrice = formValues.shirt === 'no' ? 0 : this.shirts.length * this.shirtPrice 
+      let addedShirtsPrice = 0
+      if (formValues.shirt === 'yes') { //HA KELL NEKI PÓLÓ
+        console.log();
+        Object.keys(formValues).filter(v=>{return v.includes('galler')}).forEach(key=>{
+          if (formValues[`${key}`] === 'yes'){
+            addedShirtsPrice += this.gallerPrice
+          }
+          if (formValues[`${key}`] === 'no'){
+            addedShirtsPrice += this.shirtPrice
+          }
+          if (formValues[`${key}`] === ''){
+            addedShirtsPrice += this.shirtPrice
+          }
+        })
+      }
       this.price = basePrice + addedShirtsPrice
     });
   }
@@ -134,7 +149,6 @@ Az Ifjúsági Csendes Napok szervezői`}})
     this.myForm.addControl('color' + this.shirtidx, new FormControl('', [Validators.required]));
     this.myForm.addControl('galler' + this.shirtidx, new FormControl('', [Validators.required]));
     this.myForm.addControl('gender' + this.shirtidx, new FormControl('', [Validators.required]));
-
     this.shirtidx++
   }
   removeShirt(idx: number){

@@ -185,7 +185,9 @@
                   <mat-button-toggle value="women">Női</mat-button-toggle>
               </mat-button-toggle-group>
             </td>
-            <td>{{shirtPrice}} Ft</td>
+            <td *ngIf="shirt.galler === 'yes'">{{gallerPrice}} Ft</td>
+            <td *ngIf="shirt.galler === 'no'">{{shirtPrice}} Ft</td>
+            <td *ngIf="shirt.galler === ''"> {{shirtPrice}} Ft</td>
           </tr>
         }
         <tr>
