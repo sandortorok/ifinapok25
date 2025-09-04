@@ -135,9 +135,9 @@ export class FormComponent implements OnInit{
 Köszönjük, hogy regisztráltál az Ifjúsági Csendes Napokra!  
 Örömmel várunk Téged 2025. október 24-én, hogy együtt tölthessünk két áldott, közösségi napot.
 
-Helyszín: Berettyóújfalu
+Helyszín: Berettyóújfalu, Bajcsy-Zsilinszky Endre utca 27, 4100
 Érkezés: 7:45
-Programkezdés: 8:00
+Programkezdés: 9:00
 
 Ha bármi kérdésed van, nyugodtan írj nekünk: szoboszlai.zoltan80@gmail.com
 Várjuk, hogy találkozhassunk Veled!
@@ -194,6 +194,5 @@ Az Ifjúsági Csendes Napok szervezői`}})
 export class ShirtDialog implements OnInit{
   data = inject(MAT_DIALOG_DATA)
   ngOnInit(): void {
-      console.log(this.data);
   }
 }

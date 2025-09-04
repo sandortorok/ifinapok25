@@ -21,18 +21,18 @@ p {
   background: url("/icons/podium-talk.svg") no-repeat center center;
   background-size: contain;
 }
-.waving-hand {
+.handshake {
   display: inline-block;
   width: 40px;
   height: 40px;
-  background: url("/icons/waving-hand.svg") no-repeat center center;
+  background: url("/icons/handshake.svg") no-repeat center center;
   background-size: contain;
 }
-.waving-hand-blue {
+.handshake-2 {
   display: inline-block;
   width: 40px;
   height: 40px;
-  background: url("/icons/waving-hand-blue.svg") no-repeat center center;
+  background: url("/icons/handshake-2.svg") no-repeat center center;
   background-size: contain;
 }
 .speech {
@@ -185,47 +185,47 @@ h2 {
       transform: translateY(-50%);
       border: 2px solid #023047;
     }
+    
     &--type2 {
-      border: 2px solid #219ebc;
+      border: 2px solid #fb8500;
       &:before {
         background: #eeebd5;
-        border-color: #219ebc;
+        border-color: #fb8500;
       }
       &:after {
-        background: #219ebc;
+        background: #fb8500;
       }
       .timeline__event__date {
         color: #eeebd5 ;
       }
 
       .timeline__event__icon {
-        background: #219ebc;
-        color: #219ebc;
+        background: #fb8500;
+        color: #fb8500;
       }
       .timeline__event__title {
-        color: #219ebc;
+        color: #fb8500;
       }
     }
-
     &--type3 {
-      border: 2px solid #8ecae6;
+      border: 2px solid #219ebc;
       &:before {
         background: #eeebd5 ;
-        border-color: #8ecae6;
+        border-color: #219ebc;
       }
       &:after {
-        background: #8ecae6;
+        background: #219ebc;
       }
       .timeline__event__date {
         color: #eeebd5;
       }
 
       .timeline__event__icon {
-        background: #8ecae6;
-        color: #8ecae6;
+        background: #219ebc;
+        color: #219ebc;
       }
       .timeline__event__title {
-        color: #8ecae6;
+        color: #219ebc;
       }
     }
     &--type4 {
@@ -250,24 +250,24 @@ h2 {
       }
     }
     &--type5 {
-      border: 2px solid #fb8500;
+      border: 2px solid #8ecae6;
       &:before {
         background: #eeebd5;
-        border-color: #fb8500;
+        border-color: #8ecae6;
       }
       &:after {
-        background: #fb8500;
+        background: #8ecae6;
       }
       .timeline__event__date {
         color: #eeebd5;
       }
 
       .timeline__event__icon {
-        background: #fb8500;
-        color: #fb8500;
+        background: #8ecae6;
+        color: #8ecae6;
       }
       .timeline__event__title {
-        color: #fb8500;
+        color: #8ecae6;
       }
     }
     &:last-child {
