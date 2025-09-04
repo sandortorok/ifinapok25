@@ -70,7 +70,7 @@ export const createCheckoutSession = onRequest(async (req, res) => {
       ],
       success_url: req.body.successUrl,
       cancel_url: req.body.cancelUrl,
-      metadata: { userId: req.body.userId },
+      metadata: { userId: req.body.userId, name: req.body.name, email: req.body.email },
     });
     res.status(200).send({ id: session.id, url: session.url });
   } catch (error: any) {
@@ -98,6 +98,8 @@ export const stripeWebhook = onRequest(async (req, res) => {
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
     const userId = session.metadata?.userId;
+    const name = session.metadata?.name;
+    const email = session.metadata?.email;
 
     console.log('✅ Fizetés megerősítve usernek:', userId);
 
@@ -107,6 +109,23 @@ export const stripeWebhook = onRequest(async (req, res) => {
       }, { merge: true });
       console.log(`🔄 participants/${userId} → paid = true`);
     }
+    if(name && email){
+      await db.collection('mail').add({to: [email], message: {subject: 'Sikeres regisztráció - Ifjúsági Csendes Napok (Október 24.)', text:`Kedves ${name}!
+
+Köszönjük, hogy regisztráltál az Ifjúsági Csendes Napokra!  
+Örömmel várunk Téged 2025. október 24-én, hogy együtt tölthessünk két áldott, közösségi napot.
+
+Helyszín: Berettyóújfalu
+Érkezés: 7:45
+Programkezdés: 8:00
+
+Ha bármi kérdésed van, nyugodtan írj nekünk: szoboszlai.zoltan80@gmail.com
+Várjuk, hogy találkozhassunk Veled!
+
+Isten áldásával,  
+Az Ifjúsági Csendes Napok szervezői`}});
+    }
+    console.log('Mail sent to:', email);
   }
   res.json({ received: true });
 });

@@ -18,4 +18,14 @@ export class DataService {
       throw err;
     }
   }
+  async sendEmail(data:any) {
+    console.log('Sending Email');
+    try {
+      const colRef = collection(this.firestore, 'mail');
+      return await addDoc(colRef, data); // 🔹 dokumentum hozzáadása
+    } catch (err) {
+      console.error('Hiba a Firestore-ba mentéskor:', err);
+      throw err;
+    }
+  }
 }

@@ -104,9 +104,23 @@ export class FormComponent implements OnInit{
     let finalData = {...this.myForm.value, paid, price: this.price}
     this.dataService.addItem(finalData).then((docRef)=>{
       if (this.price > 0){
-        this.stripeService.checkout(this.price, docRef.id)
+        this.stripeService.checkout(this.price, docRef.id, finalData.name, finalData.email)
       }
       else {
+        this.dataService.sendEmail({to: [this.email], message: {subject: 'Sikeres regisztráció - Ifjúsági Csendes Napok (Október 24.)', text:`Kedves ${this.name}!
+
+Köszönjük, hogy regisztráltál az Ifjúsági Csendes Napokra!  
+Örömmel várunk Téged 2025. október 24-én, hogy együtt tölthessünk két áldott, közösségi napot.
+
+Helyszín: Berettyóújfalu
+Érkezés: 7:45
+Programkezdés: 8:00
+
+Ha bármi kérdésed van, nyugodtan írj nekünk: szoboszlai.zoltan80@gmail.com
+Várjuk, hogy találkozhassunk Veled!
+
+Isten áldásával,  
+Az Ifjúsági Csendes Napok szervezői`}})
         this.router.navigate(['/success'])
       }
     })
@@ -132,5 +146,10 @@ export class FormComponent implements OnInit{
   get shirt() {
     return this.myForm.get('shirt');
   }
-
+  get email() {
+    return this.myForm.get('email')!.value;
+  }
+  get name(){
+    return this.myForm.get('name')!.value
+  }
 }
