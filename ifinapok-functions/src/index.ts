@@ -117,7 +117,7 @@ Köszönjük, hogy regisztráltál az Ifjúsági Csendes Napokra!
 
 Helyszín: Berettyóújfalu, Bajcsy-Zsilinszky Endre utca 27, 4100
 Érkezés: 7:45
-Programkezdés: 8:00
+Programkezdés: 9:00
 
 Ha bármi kérdésed van, nyugodtan írj nekünk: szoboszlai.zoltan80@gmail.com
 Várjuk, hogy találkozhassunk Veled!
