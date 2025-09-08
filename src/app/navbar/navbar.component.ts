@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   isMobile = window.innerWidth <= 500;
-  launchDate:Date = new Date('Sept 10 2025');
+  launchDate:Date = new Date('Sept 15 2025');
   days = '99';
   hours = '99';
   minutes = '99';

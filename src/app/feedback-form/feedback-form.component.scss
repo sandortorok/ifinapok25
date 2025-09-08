@@ -1,0 +1,84 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(231, 235, 217);
+    color: black;
+    flex-direction: column;
+
+}
+mat-slider{
+    width: 70%;
+}
+/* Teljes track (background) */
+::ng-deep .mdc-slider__track .mdc-slider__track--inactive{
+    background-color: black;
+    opacity: .3;    
+}
+.grid1x1 {
+  display: grid;
+  grid-template-columns: 1fr; /* két egyenlő szélességű oszlop */
+  grid-template-rows: 1fr; /* egy sor */
+  gap: 40px;
+  margin: 20px;
+  padding: 10px;
+}
+.seminar-checkbox {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+label {
+  display: block;
+  font-weight: 600;
+}
+
+.example-form-fields {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+.example-form {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+.section {
+  min-height: 100vh; /* legalább egy képernyőnyi */
+  padding: 50px;
+  color: black;
+}
+.highlight {
+  font-weight: bold;
+}
+
+// tr:nth-child(even){background-color: #f2f2f2;}
+@media screen and (max-width: 950px) {
+  .grid1x1 {
+    display: grid;
+    grid-template-columns: 1fr; /* két egyenlő szélességű oszlop */
+    grid-template-rows: 1fr; /* egy sor */
+    gap: 40px;
+    margin: 20px;
+  }
+  .example-form {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+}
+@media screen and (max-width:500px) {
+    mat-slider{
+        width:90%
+    }
+}
