@@ -7,19 +7,20 @@
     [formGroup]="feedbackForm"
     (ngSubmit)="onSubmit()"
     >
-    <div class="grid1x1">
+    <div class="grid1x1" *ngFor="let q of questions; let i = index">
         <div style="display: flex;flex-direction: column; align-items: center;">
-            <label for="q1">Hogy érezted magad a hétvége alatt?</label>
-            <mat-slider [min]="1" [max]="5" [step]="1" [showTickMarks]="true">
-              <input matSliderThumb formControlName="q1" [(ngModel)]="q1!.value">
+            <label for="{{'q'+i}}">{{q.question}}</label>
+            <mat-slider [min]="0" [max]="q.answers.length-1" [step]="1" [showTickMarks]="true">
+              <input matSliderThumb formControlName="{{'q'+i}}" [(ngModel)]="q.value ">
             </mat-slider>
-            <div>{{ q1Labels[q1!.value] }}</div>
+            <ng-container *ngIf="q.answers[q.value] as currentAnswer">
+                <div>{{ currentAnswer.value }}</div>
+            </ng-container>
         </div>
-        <div>
+        <div *ngIf="q.answers[q.value] as currentAnswer">
             <mat-form-field class="example-full-width">
-                <mat-label>Megosztod velünk, hogy miért? <span *ngIf="q1!.value < 3">😢</span> <span *ngIf="q1!.value === 3">🤔</span><span *ngIf="q1!.value > 3">😊</span></mat-label>
-                <textarea *ngIf="q1!.value < 4" matInput placeholder="Pl. Nem tetszett a (Szervezés/tanítás/emberek)"></textarea>
-                <textarea *ngIf="q1!.value >= 4" matInput placeholder="Pl. Jó volt a (Szervezés/tanítás/emberek)"></textarea>
+                <mat-label>{{currentAnswer.tellUsWhy}}</mat-label>
+                <textarea matInput placeholder="{{currentAnswer.placeholder}}"></textarea>
             </mat-form-field>
         </div>
     </div>

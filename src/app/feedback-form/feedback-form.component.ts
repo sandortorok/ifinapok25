@@ -14,7 +14,7 @@ import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-feedback-form',
-  imports: [    MatFormFieldModule,
+  imports: [MatFormFieldModule,
     MatInputModule,
     FormsModule,
     CommonModule,
@@ -32,22 +32,83 @@ import { MatSliderModule } from '@angular/material/slider';
   styleUrl: './feedback-form.component.scss'
 })
 export class FeedbackFormComponent {
+  questions = [{
+    question: "Hogy érezted magad a hétvége alatt?",
+    answers: [
+    { 
+      value: '1: Rosszul ☹️', 
+      tellUsWhy: 'Mi volt a gond? 😢', 
+      placeholder: 'Pl. Nem volt kivel beszélgetni'
+    },
+    {
+      value: '2: Lehetett volna jobb 😕', 
+      tellUsWhy: 'Mi volt a gond? 😢', 
+      placeholder: 'Pl. Nem volt kivel beszélgetni'
+    },
+    {
+      value: '3: Okésan 😐', 
+      tellUsWhy: 'Mi volt a gond? 🤔', 
+      placeholder: 'Pl. Nem volt kivel beszélgetni'
+    },
+    {
+      value: '4: Jól 😌', 
+      tellUsWhy: 'Mi volt a jó? 😊', 
+      placeholder: 'Pl. Sok jó beszélgetésem volt'
+    },
+        {
+      value: '5: Nagyon jól 😊', 
+      tellUsWhy: 'Mi volt a jó? 😊', 
+      placeholder: 'Pl. Sok jó beszélgetésem volt'
+    }
+    
+    ],
+    value: 0,
+  },
+{
+    question: "Milyen volt szerinted a szervezés?",
+    answers: [
+    { 
+      value: '1: Rossz ☹️', 
+      tellUsWhy: 'Mi nem tetszett? 😢', 
+      placeholder: 'Pl. Kevés volt a szabadidő'
+    },
+    {
+      value: '2: Lehetett volna jobb 😕', 
+      tellUsWhy: 'Mi nem tetszett? 😢', 
+      placeholder: 'Pl. Kevés volt a szabadidő'
+    },
+    {
+      value: '3: Rendben volt 😐', 
+      tellUsWhy: 'Mi nem tetszett? 🤔', 
+      placeholder: 'Pl. Kevés volt a szabadidő'
+    },
+    {
+      value: '4: Jó volt 😌', 
+      tellUsWhy: 'Mi volt a jó? 😊', 
+      placeholder: 'Pl. Szépek voltak a szolgálók :)'
+    },
+    {
+      value: '5: Szuper volt 😊', 
+      tellUsWhy: 'Mi volt a jó? 😊', 
+      placeholder: 'Pl. Szépek voltak a szolgálók :)'
+    }
+    
+    ],
+    value: 0,
+  }]
   loading = false;
-  q1Labels: { [key: number]: string } = {
-  1: '1: Rosszul ☹️',
-  2: '2: Lehetett volna jobb 😕',
-  3: '3: Okésan 😐',
-  4: '4: Jól 😌',
-  5: '5: Nagyon jól 😊',
-};
   feedbackForm: FormGroup = new FormGroup({
-      q1: new FormControl(1, []),
-    });
+    q0: new FormControl(0, []),
+    q1: new FormControl(0, []),
+    q2: new FormControl(0, []),
+    q3: new FormControl(0, []),
+    q4: new FormControl(0, []),
+    q5: new FormControl(0, []),
+    q6: new FormControl(0, []),
 
-  onSubmit(){
+  });
 
-  }
-  get q1() {
-    return this.feedbackForm.get('q1');
+  onSubmit() {
+
   }
 }
