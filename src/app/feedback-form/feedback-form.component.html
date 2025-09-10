@@ -9,7 +9,7 @@
     >
     <div class="grid1x1" *ngFor="let q of questions; let i = index">
         <div style="display: flex;flex-direction: column; ">
-            <label for="{{'q'+i}}">{{q.question}}</label>
+            <label for="{{'q'+i}}">{{`${i+1}. `}}{{q.question}}</label>
             <mat-radio-group
             id="{{'q'+i}}"
             formControlName="{{'q'+i}}"
