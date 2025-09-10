@@ -100,27 +100,27 @@ export class FeedbackFormComponent {
     question: "Milyenek voltak a sportprogramok? 🏐",
     answers: [
       {
-        value: '1: Nem vettem részt',
+        value: '0: Nem vettem részt',
         tellUsWhy: 'Egyéb megjegyzés',
         placeholder: ''
       },
       {
-        value: '2: Egyáltalán nem élveztem',
+        value: '1: Egyáltalán nem élveztem',
         tellUsWhy: 'Mi volt rossz?',
         placeholder: ''
       },
       {
-        value: '3: Inkább nem volt jó',
+        value: '2: Inkább nem volt jó',
         tellUsWhy: 'Min változtattál volna?',
         placeholder: ''
       },
       {
-        value: '4: Jól éreztem magam',
+        value: '3: Jól éreztem magam',
         tellUsWhy: 'Egyéb megjegyzés',
         placeholder: ''
       },
       {
-        value: '5: Nagyon élveztem, szuper volt! 🎉',
+        value: '4: Nagyon élveztem, szuper volt! 🎉',
         tellUsWhy: 'Egyéb megjegyzés',
         placeholder: ''
       },
@@ -131,27 +131,27 @@ export class FeedbackFormComponent {
     question: "Hogy érezted magad a társasjátékok alatt? ♙",
     answers: [
       {
-        value: '1: Nem vettem részt',
+        value: '0: Nem vettem részt',
         tellUsWhy: 'Egyéb megjegyzés',
         placeholder: ''
       },
       {
-        value: '2: Egyáltalán nem élveztem',
+        value: '1: Egyáltalán nem élveztem',
         tellUsWhy: 'Mi volt rossz?',
         placeholder: ''
       },
       {
-        value: '3: Inkább nem volt jó',
+        value: '2: Inkább nem volt jó',
         tellUsWhy: 'Min változtattál volna?',
         placeholder: ''
       },
       {
-        value: '4: Jól éreztem magam',
+        value: '3: Jól éreztem magam',
         tellUsWhy: 'Egyéb megjegyzés',
         placeholder: ''
       },
       {
-        value: '5: Nagyon élveztem, szuper volt! 🎉',
+        value: '4: Nagyon élveztem, szuper volt! 🎉',
         tellUsWhy: 'Egyéb megjegyzés',
         placeholder: ''
       },
@@ -162,27 +162,27 @@ export class FeedbackFormComponent {
     question: "Milyennek érezted a szemináriumokat? ✏️",
     answers: [
       {
-        value: '1: Nem vettem részt',
+        value: '0: Nem vettem részt',
         tellUsWhy: 'Egyéb megjegyzés',
         placeholder: ''
       },
       {
-        value: '2: Rossz volt',
+        value: '1: Rossz volt',
         tellUsWhy: 'Mi volt rossz?',
         placeholder: ''
       },
       {
-        value: '3: Átlagos volt',
+        value: '2: Átlagos volt',
         tellUsWhy: 'Min változtattál volna?',
         placeholder: ''
       },
       {
-        value: '4: Jó volt',
+        value: '3: Jó volt',
         tellUsWhy: 'Egyéb megjegyzés',
         placeholder: ''
       },
       {
-        value: '5: Nagyon jól éreztem magam',
+        value: '4: Nagyon jól éreztem magam',
         tellUsWhy: 'Egyéb megjegyzés',
         placeholder: ''
       },
@@ -203,7 +203,7 @@ export class FeedbackFormComponent {
         placeholder: 'Pl. Jó volt az énekválasztás'
       },
       {
-        value: '2: Igen',
+        value: '3: Igen',
         tellUsWhy: 'Milyennek érezted?',
         placeholder: 'Pl. Nagyon felemelőek voltak'
       },],
@@ -288,7 +288,7 @@ export class FeedbackFormComponent {
         placeholder: ''
       },
       {
-        value: '4: Nagyon tetszettek, rengeteget kaptam belőlük ✨',
+        value: '5: Nagyon tetszettek, rengeteget kaptam belőlük ✨',
         tellUsWhy: 'Mi ragadt meg bennük?',
         placeholder: ''
       },
