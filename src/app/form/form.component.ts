@@ -208,10 +208,10 @@ export class FormComponent implements OnInit {
           to: [this.email],
           message: {
             subject:
-              'Sikeres regisztráció - Ifjúsági Csendes Napok (Október 24.)',
+              'Sikeres regisztráció - Ifjúsági Csendesnapok (Október 24.)',
             text: `Kedves ${this.name}!
 
-Köszönjük, hogy regisztráltál az Ifjúsági Csendes Napokra!  
+Köszönjük, hogy regisztráltál az Ifjúsági Csendesnapokra!  
 Örömmel várunk Téged 2025. október 24-én, hogy együtt tölthessünk két áldott, közösségi napot.
 
 Helyszín: Berettyóújfalu, Bajcsy-Zsilinszky Endre utca 27, 4100
@@ -222,7 +222,7 @@ Ha bármi kérdésed van, nyugodtan írj nekünk: szoboszlai.zoltan80@gmail.com
 Várjuk, hogy találkozhassunk Veled!
 
 Isten áldásával,  
-Az Ifjúsági Csendes Napok szervezői`,
+Az Ifjúsági Csendesnapok szervezői`,
           },
         });
         this.router.navigate(['/success']);

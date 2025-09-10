@@ -543,37 +543,6 @@ export class FeedbackFormComponent {
     value: undefined,
   },
   {
-    question: "Hogy érezted, mennyire teljesültek az elvárásaid a csendesnapok alatt? 🌿",
-    answers: [
-      {
-        value: '1: Egyáltalán nem teljesültek',
-        tellUsWhy: 'Min változtattál volna?',
-        placeholder: ''
-      },
-      {
-        value: '2: Inkább nem teljesültek',
-        tellUsWhy: 'Min változtattál volna?',
-        placeholder: ''
-      },
-      {
-        value: '3: Közepesen teljesültek',
-        tellUsWhy: 'Min változtattál volna?',
-        placeholder: ''
-      },
-      {
-        value: '4: Nagyrészt teljesültek',
-        tellUsWhy: 'Mi volt különösen jó?',
-        placeholder: ''
-      },
-      {
-        value: '5: Teljesen megfeleltek az elvárásaimnak 🌟',
-        tellUsWhy: 'Mi volt különösen jó?',
-        placeholder: ''
-      },
-    ],
-    value: undefined,
-  },
-  {
     question: "Van valami, amit legközelebb jobban csinálhatnánk? 💡",
     answers: [
       {
@@ -629,7 +598,6 @@ export class FeedbackFormComponent {
     q18: new FormControl(null, [Validators.required]),
     q19: new FormControl(null, [Validators.required]),
     q20: new FormControl(null, [Validators.required]),
-    q21: new FormControl(null, [Validators.required]),
   });
 
   onSubmit() {

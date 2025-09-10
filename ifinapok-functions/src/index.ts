@@ -110,9 +110,9 @@ export const stripeWebhook = onRequest(async (req, res) => {
       console.log(`🔄 participants/${userId} → paid = true`);
     }
     if(name && email){
-      await db.collection('mail').add({to: [email], message: {subject: 'Sikeres regisztráció - Ifjúsági Csendes Napok (Október 24.)', text:`Kedves ${name}!
+      await db.collection('mail').add({to: [email], message: {subject: 'Sikeres regisztráció - Ifjúsági Csendesnapok (Október 24.)', text:`Kedves ${name}!
 
-Köszönjük, hogy regisztráltál az Ifjúsági Csendes Napokra!  
+Köszönjük, hogy regisztráltál az Ifjúsági Csendenapokra!  
 Örömmel várunk Téged 2025. október 24-én, hogy együtt tölthessünk két áldott, közösségi napot.
 
 Helyszín: Berettyóújfalu, Bajcsy-Zsilinszky Endre utca 27, 4100
@@ -123,7 +123,7 @@ Ha bármi kérdésed van, nyugodtan írj nekünk: szoboszlai.zoltan80@gmail.com
 Várjuk, hogy találkozhassunk Veled!
 
 Isten áldásával,  
-Az Ifjúsági Csendes Napok szervezői`}});
+Az Ifjúsági Csendesnapok szervezői`}});
     }
     console.log('Mail sent to:', email);
   }
