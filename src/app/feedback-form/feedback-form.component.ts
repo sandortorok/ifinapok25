@@ -367,37 +367,6 @@ export class FeedbackFormComponent {
     value: undefined,
   },
   {
-    question: "Mennyire voltál megelégedve a regisztráció folyamatával? 📝",
-    answers: [
-      {
-        value: '1: Nem voltam megelégedve',
-        tellUsWhy: 'Mi nem volt jó?',
-        placeholder: ''
-      },
-      {
-        value: '2: Voltak hiányosságok',
-        tellUsWhy: 'Mit hiányoltál?',
-        placeholder: ''
-      },
-      {
-        value: '3: Közepes, elment',
-        tellUsWhy: 'Hiányoltál valamit?',
-        placeholder: ''
-      },
-      {
-        value: '4: Elégedett voltam',
-        tellUsWhy: 'Egyéb megjegyzés',
-        placeholder: ''
-      },
-      {
-        value: '5: Nagyon elégedett, minden gördülékenyen',
-        tellUsWhy: 'Egyéb megjegyzés',
-        placeholder: ''
-      },
-    ],
-    value: undefined,
-  },
-  {
     question: "Meg voltál elégedve a szállásoddal? 🏨",
     answers: [
       {
@@ -596,7 +565,6 @@ export class FeedbackFormComponent {
     q16: new FormControl(null, [Validators.required]),
     q17: new FormControl(null, [Validators.required]),
     q18: new FormControl(null, [Validators.required]),
-    q19: new FormControl(null, [Validators.required]),
   });
 
   onSubmit() {
