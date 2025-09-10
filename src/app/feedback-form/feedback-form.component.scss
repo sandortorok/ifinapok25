@@ -8,6 +8,16 @@
     flex-direction: column;
 
 }
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
 mat-slider{
     width: 70%;
 }
@@ -81,4 +91,7 @@ label {
     mat-slider{
         width:90%
     }
+  .grid1x1 {
+    margin: 0px;
+  }
 }

@@ -8,21 +8,35 @@
     (ngSubmit)="onSubmit()"
     >
     <div class="grid1x1" *ngFor="let q of questions; let i = index">
-        <div style="display: flex;flex-direction: column; align-items: center;">
+        <div style="display: flex;flex-direction: column; ">
             <label for="{{'q'+i}}">{{q.question}}</label>
-            <mat-slider [min]="0" [max]="q.answers.length-1" [step]="1" [showTickMarks]="true">
-              <input matSliderThumb formControlName="{{'q'+i}}" [(ngModel)]="q.value ">
-            </mat-slider>
-            <ng-container *ngIf="q.answers[q.value] as currentAnswer">
-                <div>{{ currentAnswer.value }}</div>
-            </ng-container>
+            <mat-radio-group
+            id="{{'q'+i}}"
+            formControlName="{{'q'+i}}"
+            aria-labelledbyx="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="q.value">
+            @for (a of q.answers; track a; let answerIdx = $index) {
+                <mat-radio-button class="example-radio-button" [value]="answerIdx">{{a.value}}</mat-radio-button>
+            }
+            </mat-radio-group>
         </div>
-        <div *ngIf="q.answers[q.value] as currentAnswer">
+        <div>
             <mat-form-field class="example-full-width">
-                <mat-label>{{currentAnswer.tellUsWhy}}</mat-label>
-                <textarea matInput placeholder="{{currentAnswer.placeholder}}"></textarea>
+                <mat-label>{{ q.value !== undefined ? q.answers[q.value].tellUsWhy : 'Megjegyzés (opcionális)'}}</mat-label>
+                <textarea matInput placeholder="{{q.answers[q.value ?? 0].placeholder}}"></textarea>
             </mat-form-field>
         </div>
+    </div>
+    <div style="display: flex; justify-content: center; margin: 30px 0">
+      <button type="submit" [disabled]="feedbackForm.invalid || loading" mat-stroked-button (click)="loading = true">
+        <ng-container *ngIf="!loading; else spinnerTpl">
+           Leadás
+        </ng-container>
+        <ng-template #spinnerTpl>
+          <mat-spinner diameter="20"></mat-spinner>
+        </ng-template>
+      </button>
     </div>
   </form>
 </div>

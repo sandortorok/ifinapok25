@@ -15,7 +15,6 @@ import { MatSliderModule } from '@angular/material/slider';
 @Component({
   selector: 'app-feedback-form',
   imports: [MatFormFieldModule,
-    
     MatInputModule,
     FormsModule,
     CommonModule,
@@ -63,9 +62,9 @@ export class FeedbackFormComponent {
     }
     
     ],
-    value: 0,
+    value: undefined,
   },
-{
+  {
     question: "Milyen volt szerinted a szervezés?",
     answers: [
     { 
@@ -95,8 +94,148 @@ export class FeedbackFormComponent {
     }
     
     ],
-    value: 0,
-  }]
+    value: undefined,
+  },
+{
+    question: "Részt vettél sportban? 🏐",
+    answers: [
+    { 
+      value: '1: Nem', 
+      tellUsWhy: 'Miért nem?', 
+      placeholder: 'Pl. Szemináriumokra mentem'
+    },
+    {
+      value: '2: Igen', 
+      tellUsWhy: 'Hogy érezted magad?', 
+      placeholder: ''
+    },
+    
+    ],
+    value: undefined,
+  },
+  {
+    question: "Be tudtál kapcsolódni a közös éneklésbe? 🎶",
+    answers: [
+    { 
+      value: '1: Nem igazán', 
+      tellUsWhy: 'Mi volt az oka?', 
+      placeholder: 'Pl. Nem ismerem az énekeket'
+    },
+    {
+      value: '2: Részben', 
+      tellUsWhy: 'Milyennek érezted?', 
+      placeholder: 'Pl. Nagyon tetszettek az énekek'
+    },
+    {
+      value: '2: Igen', 
+      tellUsWhy: 'Milyennek érezted?', 
+      placeholder: 'Pl. Nagyon tetszettek az énekek'
+    },],
+    value: undefined,
+  },
+  {
+    question: "Hol találkoztál a rendezvény hirdetésével? 📣",
+    answers: [
+    { 
+      value: '1: Facebook', 
+      tellUsWhy: 'Egyéb megjegyzés', 
+      placeholder: ''
+    },
+    {
+      value: '2: Instagram', 
+      tellUsWhy: 'Egyéb megjegyzés', 
+      placeholder: ''
+    },
+    {
+      value: '3: Email', 
+      tellUsWhy: 'Egyéb megjegyzés', 
+      placeholder: ''
+    },
+    {
+      value: '4: Barátok', 
+      tellUsWhy: 'Egyéb megjegyzés', 
+      placeholder: ''
+    },
+    {
+      value: '5: Korábban is voltam', 
+      tellUsWhy: 'Egyéb megjegyzés', 
+      placeholder: ''
+    },
+    {
+      value: '6: Egyéb', 
+      tellUsWhy: 'Hol?', 
+      placeholder: ''
+    },],
+    value: undefined,
+  },
+  {
+    question: "Látsz valami hiányosságot a hirdetésekben?",
+    answers: [
+    { 
+      value: '1: Nem', 
+      tellUsWhy: 'Egyéb megjegyzés', 
+      placeholder: ''
+    },
+    {
+      value: '2: Igen', 
+      tellUsWhy: 'Min változtattál volna?', 
+      placeholder: ''
+    },],
+    value: undefined,
+  },
+  {
+    question: "Tetszettek az előadások? 📖",
+    answers: [
+    { 
+      value: '1: Nem jöttek annyira be', 
+      tellUsWhy: 'Miért nem tetszett?', 
+      placeholder: ''
+    },
+    {
+      value: '2: Kibírtam', 
+      tellUsWhy: 'Mi nem tetszett?',
+      placeholder: ''
+    },
+    {
+      value: '3: Jók voltak', 
+      tellUsWhy: 'Mik ragadtak meg bennük?', 
+      placeholder: ''
+    },
+    {
+      value: '4: Nagyon tetszett', 
+      tellUsWhy: 'Mik ragadtak meg bennük?', 
+      placeholder: ''
+    },],
+    value: undefined,
+  },
+  {
+    question: "Jók voltak a bizonyságtételek? 📖",
+    answers: [
+    { 
+      value: '1: Nem jöttek annyira be', 
+      tellUsWhy: 'Miért nem tetszett?', 
+      placeholder: ''
+    },
+    {
+      value: '2: Kibírtam', 
+      tellUsWhy: 'Mi nem tetszett?',
+      placeholder: ''
+    },
+    {
+      value: '3: Jók voltak', 
+      tellUsWhy: 'Mi volt a legjobban hatással rád?',
+      placeholder: ''
+    },
+    {
+      value: '4: Nagyon tetszett', 
+      tellUsWhy: 'Mi volt a legjobban hatással rád?',
+      placeholder: ''
+    },],
+    value: undefined,
+  },
+
+
+]
   loading = false;
   feedbackForm: FormGroup = new FormGroup({
     q0: new FormControl(0, []),
@@ -110,6 +249,6 @@ export class FeedbackFormComponent {
   });
 
   onSubmit() {
-
+    console.log(this.feedbackForm.value)
   }
 }
