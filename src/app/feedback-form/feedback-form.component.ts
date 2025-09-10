@@ -597,7 +597,6 @@ export class FeedbackFormComponent {
     q17: new FormControl(null, [Validators.required]),
     q18: new FormControl(null, [Validators.required]),
     q19: new FormControl(null, [Validators.required]),
-    q20: new FormControl(null, [Validators.required]),
   });
 
   onSubmit() {
