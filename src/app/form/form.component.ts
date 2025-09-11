@@ -94,7 +94,6 @@ export class FormComponent implements OnInit {
       this.sem6!.valueChanges.pipe(startWith(this.sem6!.value)),
       this.sem7!.valueChanges.pipe(startWith(this.sem7!.value)),
     ]).subscribe(([sem2,sem3,sem4,sem6,sem7]) => {
-      console.log([sem2,sem3,sem4,sem6,sem7]);
       if (sem2 || sem3){
         this.sem4?.disable({emitEvent:false})
       }
@@ -148,7 +147,6 @@ export class FormComponent implements OnInit {
       let addedShirtsPrice = 0;
       if (formValues.shirt === 'yes') {
         //HA KELL NEKI PÓLÓ
-        console.log();
         Object.keys(formValues)
           .filter((v) => {
             return v.includes('galler');
