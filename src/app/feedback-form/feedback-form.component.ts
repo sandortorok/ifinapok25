@@ -433,7 +433,7 @@ export class FeedbackFormComponent {
     answers: [
       {
         value: '1: Igen, több dolog is gondot okozott 😕',
-        tellUsWhy: 'Kérlek mondd el mi volt az',
+        tellUsWhy: 'Kérlek mondd el mik voltak ezek',
         placeholder: ''
       },
       {
