@@ -433,12 +433,12 @@ export class FeedbackFormComponent {
     answers: [
       {
         value: '1: Igen, több dolog is gondot okozott 😕',
-        tellUsWhy: 'Írd le nyugodtan, hogy legközelebb jobban csinálhassuk! ✍️',
+        tellUsWhy: 'Kérlek mondd el mi volt az',
         placeholder: ''
       },
       {
         value: '2: Volt egy-két apróság 😐',
-        tellUsWhy: 'Írd le nyugodtan, hogy legközelebb jobban csinálhassuk! ✍️',
+        tellUsWhy: 'Kérlek mondd el mi volt az',
         placeholder: ''
       },
       {

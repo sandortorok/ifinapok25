@@ -22,9 +22,9 @@
             </mat-radio-group>
         </div>
         <div>
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="fill" class="example-full-width">
                 <mat-label>{{ q.value !== undefined ? q.answers[q.value].tellUsWhy : 'Megjegyzés (opcionális)'}}</mat-label>
-                <textarea matInput placeholder="{{q.answers[q.value ?? 0].placeholder}}"></textarea>
+                <textarea cdkTextareaAutosize cdkAutosizeMinRows="3" cdkAutosizeMaxRows="8" matInput placeholder="{{q.answers[q.value ?? 0].placeholder}}"></textarea>
             </mat-form-field>
         </div>
     </div>

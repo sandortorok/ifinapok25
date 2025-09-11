@@ -86,6 +86,11 @@ label {
     margin: 0 auto;
     padding: 10px;
   }
+  mat-form-field mat-label{
+    white-space: normal;
+    line-height: 1.2;
+    font-size: 12px;
+  }
 }
 @media screen and (max-width:500px) {
     mat-slider{
@@ -93,5 +98,10 @@ label {
     }
   .grid1x1 {
     margin: 0px;
+  }
+  mat-form-field mat-label{
+    white-space: normal;
+    font-size: 10px;
+    line-height: 1.2;
   }
 }
