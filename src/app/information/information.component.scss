@@ -1,0 +1,61 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  color: #0a2239;
+  background: url("/background.jpg") no-repeat center center;
+  ;
+  background-color: rgb(255, 255, 255);
+  background-size: calc(100%) calc(100% - 12%);
+  background-position: center;
+  background-size: cover;
+  /* vízszintesen középen, függőlegesen lent */
+  background-attachment: fixed;
+  /* ez tartja fixen a képet */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 80px;
+  margin-bottom:200px;
+}
+
+.content div {
+  background-color: rgba(10, 34, 57, 0.85);
+  color: white;
+  min-width: 50%;
+  max-width: 700px;
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  box-shadow: 0 8px 25px rgba(10, 34, 57, 0.7);
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+h2 {
+  text-align: center;
+}
+
+.meghivo {
+  text-align: center;
+}
+
+.meghivo img {
+  width: 80%;
+}
+
+@media (max-width: 1024px) {}

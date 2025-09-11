@@ -6,7 +6,7 @@ import { InformationComponent } from '../information/information.component';
 
 @Component({
   selector: 'app-main',
-  imports: [NavbarComponent, FormComponent, ProgramsComponent],
+  imports: [NavbarComponent, FormComponent, ProgramsComponent, InformationComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
