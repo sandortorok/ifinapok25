@@ -289,7 +289,7 @@ Az Ifjúsági Csendesnapok szervezői`,
   }
   updateDateErrorMessage() {
     if (this.myForm.get('date')?.hasError('required')) {
-      this.dateError.set('Adj meg egy dátumot!');
+      this.dateError.set('Adj meg egy dátumot! (használd a kis ikont)');
     } else if (this.myForm.get('date')?.hasError('minAge')) {
       this.dateError.set('Legalább 14 évesnek kell lenned :(');
     } else {
