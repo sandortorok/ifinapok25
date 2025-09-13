@@ -12,7 +12,10 @@
   align-items: center;
   display: flex;
 }
-
+video {
+  width: 100%;
+  height: auto;
+}
 .content {
   position: relative;
   display: flex;
