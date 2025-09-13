@@ -16,7 +16,11 @@
             id="name"
             formControlName="name"
             placeholder="Kis János"
+            (blur)="updateNameErrorMessage()"
           />
+          @if (myForm.get('name')?.invalid) {
+              <mat-error>{{nameError()}}</mat-error>
+          }
         </mat-form-field>
       </div>
       <div>
@@ -27,7 +31,11 @@
             id="email"
             formControlName="email"
             placeholder="kis.janos@gmail.com"
+            (blur)="updateEmailErrorMessage()"
           />
+            @if (myForm.get('email')?.invalid) {
+              <mat-error>{{emailError()}}</mat-error>
+            }
         </mat-form-field>
       </div>
     </div>
@@ -125,7 +133,7 @@
       <div>
         <label id="birthday" style="margin-bottom: 10px">Születési Dátum</label>
         <mat-form-field class="datePicker">
-          <input formControlName="date" matInput [matDatepicker]="picker" (blur)="updateErrorMessage()" />
+          <input formControlName="date" matInput [matDatepicker]="picker" (blur)="updateDateErrorMessage()" />
           <mat-datepicker-toggle
             matIconSuffix
             [for]="picker"

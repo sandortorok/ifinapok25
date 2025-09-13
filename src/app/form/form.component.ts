@@ -271,9 +271,23 @@ Az Ifjúsági Csendesnapok szervezői`,
     });
   }
   dateError = signal('');
-
-  updateErrorMessage() {
-    console.log(this.myForm.get('date'));
+  emailError = signal('');
+  nameError = signal('');
+  updateNameErrorMessage(){
+    if (this.myForm.get('name')?.hasError('required')) {
+      this.nameError.set('Mi a neved?');
+    } else {
+      this.nameError.set('');
+    }
+  }
+  updateEmailErrorMessage(){
+    if (this.myForm.get('email')?.hasError('required')) {
+      this.emailError.set('Adj meg egy emailt!');
+    } else {
+      this.emailError.set('');
+    }
+  }
+  updateDateErrorMessage() {
     if (this.myForm.get('date')?.hasError('required')) {
       this.dateError.set('Adj meg egy dátumot!');
     } else if (this.myForm.get('date')?.hasError('minAge')) {
