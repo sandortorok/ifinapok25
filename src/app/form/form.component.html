@@ -125,12 +125,15 @@
       <div>
         <label id="birthday" style="margin-bottom: 10px">Születési Dátum</label>
         <mat-form-field class="datePicker">
-          <input formControlName="date" matInput [matDatepicker]="picker" />
+          <input formControlName="date" matInput [matDatepicker]="picker" (blur)="updateErrorMessage()" />
           <mat-datepicker-toggle
             matIconSuffix
             [for]="picker"
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+            @if (myForm.get('date')?.invalid) {
+              <mat-error>{{dateError()}}</mat-error>
+            }
         </mat-form-field>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -173,7 +173,7 @@ export class FormComponent implements OnInit {
     gender: new FormControl('', [Validators.required]),
     hotel: new FormControl('', [Validators.required]),
     mass: new FormControl('', []),
-    date: new FormControl(null, [Validators.required, minAgeValidator(14)]),
+    date: new FormControl(new Date(), [Validators.required, minAgeValidator(14)]),
     vehicle: new FormControl('', [Validators.required]),
     organizer: new FormControl('', [Validators.required]),
     friday: new FormControl(0, []),
@@ -269,6 +269,18 @@ Az Ifjúsági Csendesnapok szervezői`,
         title,
       },
     });
+  }
+  dateError = signal('');
+
+  updateErrorMessage() {
+    console.log(this.myForm.get('date'));
+    if (this.myForm.get('date')?.hasError('required')) {
+      this.dateError.set('Adj meg egy dátumot!');
+    } else if (this.myForm.get('date')?.hasError('minAge')) {
+      this.dateError.set('Legalább 14 évesnek kell lenned :(');
+    } else {
+      this.dateError.set('');
+    }
   }
   get shirt() {
     return this.myForm.get('shirt');
